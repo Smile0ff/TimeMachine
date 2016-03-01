@@ -58,7 +58,7 @@ gulp.task("watcher", function(){
     //gulp.watch(cfg.js +"/**/*.js", ["js"]);
     gulp.watch(cfg.css +"/**/*.less", ["css"]);
     gulp.watch(cfg.fonts +"/**/*.*", ["fonts"]);
-    gulp.watch(cfg.img +"/**/*.*", ["images"]);
+    gulp.watch(cfg.images +"/**/*.*", ["images"]);
 
 });
 

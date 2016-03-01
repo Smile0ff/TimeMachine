@@ -1,8 +1,61 @@
 @import "components/common.less";
+@import "components/loader.less";
 /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
 /*  layout start                              */
 /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
-
+#page{
+    position: relative;
+    overflow: hidden;
+}
+#content{
+    width: 300%;
+    height: 300%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    transform: translateX(-33.33333333333333%) translateY(-33.33333333333333%);
+    background: @black;
+}
+.part-holder{
+    display: block;
+    width: 33.33333333333333%;
+    height: 33.33333333333333%;
+    position: absolute;
+    background: @black;
+    transition: all 5s @easing;
+    overflow: hidden;
+    &.center{
+        top: 33.33333333333333%;
+        left: 33.33333333333333%;
+    }
+    &.top-left{
+        top: 0;
+        left: 0;
+    }
+    &.top-middle{
+        top: 0;
+        left: 33.33333333333333%;
+    }
+    &.top-right{
+        top: 0;
+        left: 66.66666666666667%;
+    }
+    &.bottom-left{
+        top: auto;
+        left: 0;
+        bottom: 0;
+    }
+    &.bottom-middle{
+        top: auto;
+        left: 33.33333333333333%;
+        bottom: 0;
+    }
+    &.bottom-right{
+        top: auto;
+        left: 66.66666666666667%;
+        bottom: 0;
+    }
+}
 /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
 /*  layout end                                */
 /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
