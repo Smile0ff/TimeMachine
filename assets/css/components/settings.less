@@ -1,7 +1,45 @@
+@font-face {
+  font-family: "DejaVuSansCondensed";
+  src: url("../fonts/dejavu/DejaVuSansCondensed.eot?#iefix") format("embedded-opentype"),
+       url("../fonts/dejavu/DejaVuSansCondensed.woff") format("woff"),
+       url("../fonts/dejavu/DejaVuSansCondensed.ttf") format("truetype"),
+       url("../fonts/dejavu/DejaVuSansCondensed.svg#DejaVuSansCondensed") format("svg");
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: "DejaVuSans";
+  src: url("../fonts/dejavu/DejaVuSans.eot?#iefix") format("embedded-opentype"),
+       url("../fonts/dejavu/DejaVuSans.woff") format("woff"),
+       url("../fonts/dejavu/DejaVuSans.ttf") format("truetype"),
+       url("../fonts/dejavu/DejaVuSans.svg#DejaVuSans") format("svg");
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: "DejaVuSans-ExtraLight";
+  src: url("../fonts/dejavu/DejaVuSans-ExtraLight.eot?#iefix") format("embedded-opentype"),
+       url("../fonts/dejavu/DejaVuSans-ExtraLight.woff") format("woff"),
+       url("../fonts/dejavu/DejaVuSans-ExtraLight.ttf") format("truetype"),
+       url("../fonts/dejavu/DejaVuSans-ExtraLight.svg#DejaVuSans-ExtraLight") format("svg");
+  font-weight: normal;
+  font-style: normal;
+}
 /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
 /*  system variables start                    */
 /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+@black: #000;
+@grey: #0f0f0f;
+@white: #fefefe;
 
+@djsc: "DejaVuSansCondensed", sans-serif;
+@djs: "DejaVuSans", sans-serif;
+@djsl: "DejaVuSans-ExtraLight", sans-serif;
+
+@notebook: ~"(max-width: 1440px)";
+@netbook: ~"(max-width: 1280px)";
+@tablet: ~"(max-width: 768px)";
+@mobile: ~"(max-width: 440px)";
 /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
 /*  system variables end                      */
 /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
@@ -28,7 +66,8 @@
     }
 }
 figure,
-figure > img{
+figure > img,
+img{
     display: block;
     width: 100%;
     height: auto;

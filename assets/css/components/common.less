@@ -4,12 +4,20 @@
 /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
 /*  Fonts start                               */
 /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
-h1, h2, h3, h4, h5, h6, p, a, time, span{
-    font-family: "Arial", sans-serif;
+h1, h2, h3, p, a, time, span, small{
     font-weight: normal;
-    color: #000;
+    color: @black;
 }
-p, a{ font-size: 1em; }
+h1, h2, h3{ font-family: @djsc; }
+p, a, span, time, small{ font-family: @djs; }
+
+h1{ font-size: 6em; }
+h2{ font-size: 4.5em; }
+h3{ font-size: 1.5em; }
+h4{ font-size: 1.25em; }
+
+p, a, time{ font-size: 1em; }
+small{ font-size: .875em; }
 a{ text-decoration: none; }
 /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
 /*  Fonts end                                 */
