@@ -1,0 +1,36 @@
+{
+  "name": "time-machine",
+  "version": "1.0.0",
+  "description": "Rock Band \"Time Machine\"",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Smile0ff/TimeMachine.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Smile0ff/TimeMachine/issues"
+  },
+  "homepage": "https://github.com/Smile0ff/TimeMachine#readme",
+  "dependencies": {},
+  "devDependencies": {
+    "glob": "^7.0.0",
+    "gulp": "^3.9.1",
+    "gulp-imagemin": "^2.4.0",
+    "imagemin-pngquant": "^4.2.2",
+    "jspm": "^0.16.30"
+  },
+  "jspm": {
+    "configFile": "jspm.config.js",
+    "dependencies": {},
+    "devDependencies": {
+      "babel": "npm:babel-core@^5.8.24",
+      "babel-runtime": "npm:babel-runtime@^5.8.24",
+      "core-js": "npm:core-js@^1.1.4"
+    }
+  }
+}
