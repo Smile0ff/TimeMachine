@@ -6,5 +6,5 @@ import Switcher from "../lib/switcher";
 $(() => {
 
     new Switcher();
-
+    
 });

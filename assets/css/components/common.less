@@ -11,7 +11,7 @@ h1, h2, h3, p, a, time, span, small{
 h1, h2, h3{ font-family: @djsc; }
 p, a, span, time, small{ font-family: @djs; }
 
-h1{ font-size: 6em; }
+h1{ font-size: 5.5em; }
 h2{ font-size: 4.5em; }
 h3{ font-size: 1.5em; }
 h4{ font-size: 1.25em; }
@@ -72,7 +72,7 @@ body, html{
         float: right;
         position: relative;
         cursor: pointer;
-        & > .line{
+        .line{
             display: block;
             width: 100%;
             height: 2px;
@@ -81,9 +81,24 @@ body, html{
             left: 0;
             transition: all .6s @easing 0s;
             background: @white;
+            opacity: 1;
+            transform: translateX(0%);
             overflow: hidden;
             &:nth-child(2){ top: 10px; }
             &:nth-child(3){ top: 20px; }
+        }
+        &:hover{
+            .line{
+                transform: translateX(20%);
+                &:nth-child(2){ transform: translateX(-20%); }
+            }
+        }
+        &.active{
+            .line{
+                opacity: 0;
+                transform: translateX(100%);
+                &:nth-child(2){ transform: translateX(-100%); }
+            }
         }
     }
 }
@@ -92,33 +107,146 @@ body, html{
 /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
 
 /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+/*  langs start                               */
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+.lang-holder{
+    width: 116px;
+    height: 48px;
+    margin: 80px 0 0 80px;
+    .item{
+        width: 48px;
+        height: 48px;
+        float: left;
+        position: relative;
+        margin-right: 20px;
+        &:last-child{ margin-right: 0; }
+        &:before,
+        a{
+            display: block;
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            top: 0;
+            left: 0;
+            transition: all .6s @easing 0s;
+        }
+        &:before{
+            .dashed();
+            content: "";
+            transform: rotate(0deg);
+            background: transparent;
+        }
+        a{
+            z-index: 5;
+            text-align: center;
+            line-height: 48px;
+            color: @white;
+            font-size: .875em;
+            text-transform: uppercase;
+            background: transparent;
+            border-radius: 50%;
+        }
+        &:hover,
+        &.active{
+            &:before{
+                transform: rotate(180deg);
+                background: @white;
+            }
+            a{ color: @grey; }
+        }
+    }
+}
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+/*  langs end                                 */
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+/*  menu start                                */
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+#menu{
+    width: 100%;
+    height: auto;
+    position: absolute;
+    top: 50%;
+    left: 0;
+    transform: translateY(-50%);
+    backface-visibility: hidden;
+    ul{
+        display: block;
+        text-align: center;
+        li{
+            display: block;
+            width: 100%;
+            height: auto;
+            a{
+                display: inline-block;
+                font-family: @djsc;
+                font-size: 2.5em;
+                color: @white;
+                text-transform: uppercase;
+                padding: 40px 40px 20px;
+                position: relative;
+                &:after{
+                    display: block;
+                    width: 120px;
+                    height: 2px;
+                    position: absolute;
+                    left: 50%;
+                    bottom: 0;
+                    content: "";
+                    margin-left: -60px;
+                    background: @white;
+                    opacity: 0;
+                    transition: all .6s @easing 0s;
+                    transform: scaleX(0) translateY(20px);
+                    overflow: hidden;
+                }
+            }
+            &:first-child{
+                a{ padding: 0px 40px 20px; }
+            }
+            &:hover,
+            &.active{
+                a{
+                    &:after{
+                        opacity: 1;
+                        transform: scaleX(1) translateY(0px);
+                    }
+                }
+            }
+        }
+    }
+}
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+/*  menu end                                  */
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
 /*  dashed-circle start                       */
 /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
-.circle-dashed-icon{
+.circle-dashed{
     display: block;
     width: 48px;
     height: 48px;
     position: relative;
     cursor: pointer;
     overflow: hidden;
-    .circle{
+    &:before,
+    & > span{
         display: block;
         width: 100%;
         height: 100%;
         position: absolute;
         top: 0;
         left: 0;
-        border: 2px dashed @white;
-        border-radius: 50%;
-        box-sizing: border-box;
+        transition: all .6s @easing 0s;
     }
-    .icon{
-        display: block;
-        width: 100%;
-        height: 100%;
-        position: absolute;
-        top: 0;
-        left: 0;
+    &:before{
+        content: "";
+        .dashed();
+        transform: rotate(0deg);
+    }
+    & > span{
         z-index: 5;
         color: @white;
         font-size: 1.125em;
@@ -129,9 +257,43 @@ body, html{
             vertical-align: middle;
         }
     }
+    &:hover,
+    &.active{
+        &:before{
+            transform: rotate(180deg);
+            background: @white;
+        }
+        & > span{ color: @grey; }
+    }
 }
 /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
 /*  dashed-circle end                         */
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+/*  background circle start                   */
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+.background-circle-holder{
+    width: 100%;
+    height: 0;
+    padding-top: 100%;
+    position: relative;
+    overflow: hidden;
+    &:before{
+        display: block;
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        content: "";
+        border: 80px solid @grey;
+        border-radius: 50%;
+        box-sizing: border-box;
+    }
+}
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+/*  background circle end                     */
 /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
 
 /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
@@ -149,6 +311,20 @@ body, html{
 /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
 
 /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+/*  initials letter start                     */
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+.initials-letter{
+    display: inline-block;
+    position: absolute;
+    font-size: 20vw;
+    color: @grey;
+    text-transform: uppercase;
+}
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+/*  initials letter end                       */
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
 /*  buttons start                             */
 /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
 *[class^="btn"]{
@@ -163,6 +339,7 @@ body, html{
         box-sizing: border-box;
         transition: all .6s @easing;
         line-height: 60px;
+        font-family: @djsc;
         color: @white;
         text-transform: uppercase;
         text-align: center;
@@ -175,5 +352,35 @@ body, html{
 }
 /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
 /*  buttons end                               */
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+/*  close start                               */
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+.close{
+    display: inline-block;
+    color: @white;
+    text-align: right;
+    position: relative;
+    line-height: 40px;
+    cursor: pointer;
+    &:before{
+        display: block;
+        width: 40px;
+        height: 2px;
+        position: absolute;
+        top: 50%;
+        left: 0;
+        content: "";
+        background: @white;
+        transition: all .6s @easing;
+        transform: translateX(-60px);
+    }
+    &:hover{
+        &:before{ transform: translateX(-80px); }
+    }
+}
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+/*  close end                                 */
 /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
 

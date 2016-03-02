@@ -1,38 +1,8 @@
 "use strict";
 
-import getVendor from "./getVendor";
-
 let page = $("#page");
-let parts = $(".part-holder");
-
-let transform = getVendor("transform");
-let partsData = {
-    topLeft: {
-        x: 100,
-        y: 100,
-        class: "top-left"
-    },
-    topMiddle: {
-        x: 0,
-        y: 100,
-        class: "top-middle"
-    },
-    topRight: {
-        x: -100,
-        y: 100,
-        class: "top-right"
-    },
-    bottomLeft: {
-        x: 100,
-        y: -100,
-        class: "bottom-left"
-    },
-    bottomRight: {
-        x: -100,
-        y: -100,
-        class: "bottom-right"
-    }
-};
+let switchers = $(".switcher");
+let activeClass = "";
 
 class Swicther{
 
@@ -40,28 +10,26 @@ class Swicther{
         this._events();
     }
     _events(){
-        page.on("click", ".switcher", (e) => { this._handleSwitch(e) });
+        page
+            .on("click", ".switcher", (e) => { this._handleSwitch(e) })
+            .on("click", ".close-part", (e) => { this._handleClose(e) });
     }
     _handleSwitch(e){
         let target = $(e.target).closest(".switcher");
-        let partName = target.data("part");
-        let partData = this.getSelectedPosition(partName);
+        let partClassName = target.data("part");
 
-        this.switchPart(partData);
+        activeClass = partClassName;
+
+        page.addClass(partClassName);
+        target.addClass("active");
 
         return false;
     }
-    getSelectedPosition(partName = ""){
-        return partsData.hasOwnProperty(partName) ? partsData[partName] : {};
-    }
-    switchPart(partData){
-        let parts = parts.filter(".center ." + partData.class);
-        let middlePart = parts.filter(".center");
+    _handleClose(e){
+        page.removeClass(activeClass);
+        switchers.removeClass("active");
 
-        console.dirxml(parts);
-        
-        currentPart.css({ transform: "translateX(0%) translateY(0%)" });
-        middlePart.css({ transform: "translateX("+ partData.x +"%) translateY("+ partData.y +"%)" });
+        return false;
     }
 }
 

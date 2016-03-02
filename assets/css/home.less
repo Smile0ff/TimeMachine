@@ -10,6 +10,13 @@
     background: @black;
     overflow: hidden;
 }
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+/*  layout end                                */
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+/*  part start                                */
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
 .part-holder{
     display: block;
     width: 100%;
@@ -18,8 +25,104 @@
     top: 0;
     left: 0;
     background: @black;
-    transition: all .6s @easing 0s;
+    transition: all 1.2s @easing 0s;
     overflow: hidden;
+    .photo-holder{
+        width: 37.5%;
+        height: 100%;
+        float: left;
+    }
+    .right-content-holder{
+        width: 62.5%;
+        height: 100%;
+        float: left;
+        position: relative;
+    }
+    .info-holder{
+        max-width: 100%;
+        position: absolute;
+        top: 50%;
+        left: 0;
+        z-index: 10;
+        transform: translateY(-50%);
+        .info{
+            position: relative;
+            z-index: 20;
+        }
+        h1, h2{
+            text-transform: uppercase;
+        }
+        h1, h2, p, .upper-title{
+            color: @white;
+            text-align: left;
+        }
+        .upper-title{
+            display: block;
+            font-size: 1.25em;
+            font-family: @djsl;
+            padding: 0 0 20px 40px;
+        }
+        .underline{ margin-left: -40px; }
+        h2{ padding: 40px 0 0 80px;  }
+        p{ padding: 20px 20% 0 40px; }
+        .btn{ margin: 80px 0 0 80px; }
+    }
+    .background-date-holder{
+        display: block;
+        width: 100%;
+        position: absolute;
+        top: 0;
+        left: 0;
+        transform: translateX(-40px) translateY(-30%);
+        font-family: @djsl;
+        font-size: 14vw;
+        color: @grey;
+        text-align: left;
+    }
+    .background-circle-holder{
+        width: 50%;
+        padding-top: 50%;
+        position: absolute;
+        right: 0;
+        bottom: 0;
+    }
+    .circle-dashed{
+        position: absolute;
+        top: 0;
+        left: 0;
+    }
+    .close{
+        position: absolute;
+        z-index: 5;
+    }
+    &.right-side{
+        .photo-holder,
+        .right-content-holder{
+            float: right;
+        }
+        .info-holder{
+            h1, h2, p, .upper-title{
+                text-align: right;
+            }
+            .upper-title{ padding: 0 40px 20px 0; }
+            .underline{
+                margin: 0 -40px 0 0;
+                float: right;
+            }
+            h2{
+                padding: 40px 80px 0 0;
+                clear: right;
+            }
+            p{ padding: 20px 40px 0 20%; }
+            .btn{
+                margin: 80px 80px 0 0;
+                float: right;
+            }
+        }
+    }
+}
+
+.part-holder{
     &.center{ transform: translateX(0%) translateY(0%); }
     &.top-left{ transform: translateX(-100%) translateY(-100%); }
     &.top-middle{ transform: translateX(0%) translateY(-100%); }
@@ -27,8 +130,39 @@
     &.bottom-left{ transform: translateX(-100%) translateY(100%); }
     &.bottom-right{ transform: translateX(100%) translateY(100%); }
 }
+
+#page.top-left{
+    .part-holder{
+        &.center{ transform: translateX(100%) translateY(100%); }
+        &.top-left{ transform: translateX(0%) translateY(0%); }
+    }
+}
+#page.top-middle{
+    .part-holder{
+        &.center{ transform: translateX(0%) translateY(100%); }
+        &.top-middle{ transform: translateX(0%) translateY(0%); }
+    }
+}
+#page.top-right{
+    .part-holder{
+        &.center{ transform: translateX(-100%) translateY(100%); }
+        &.top-right{ transform: translateX(0%) translateY(0%); }
+    }
+}
+#page.bottom-left{
+    .part-holder{
+        &.center{ transform: translateX(100%) translateY(-100%); }
+        &.bottom-left{ transform: translateX(0%) translateY(0%); }
+    }
+}
+#page.bottom-right{
+    .part-holder{
+        &.center{ transform: translateX(-100%) translateY(-100%); }
+        &.bottom-right{ transform: translateX(0%) translateY(0%); }
+    }
+}
 /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
-/*  layout end                                */
+/*  part end                                  */
 /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
 
 /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
@@ -36,9 +170,9 @@
 /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
 .part-holder.center{
     .photo-holder{
-        display: block;
         width: 100%;
         height: 100%;
+        float: none;
         position: relative;
         & > li{
             display: block;
@@ -47,23 +181,15 @@
             float: left;
             position: relative;
             overflow: hidden;
-            .circle-dashed-icon{
+            .circle-dashed{
                 position: absolute;
+                top: auto;
                 left: 50%;
                 bottom: 80px;
                 margin-left: -20px;
                 z-index: 5;
-                .circle,
-                .icon{
-                    transition: all .6s @easing 0s;
-                }
-                .circle{ transform: rotate(0deg); }
-                &:hover{
-                    .circle{
-                        transform: rotate(180deg);
-                        background: @white;
-                    }
-                    .icon{ color: @grey; }
+                &:hover,
+                &.active{
                     & + .participant-photo:before{ opacity: 0; }
                 }
             }
@@ -111,51 +237,36 @@
             }
         }
     }
-    .circle-holder{
+    .background-circle-holder{
         width: 33.3333333%;
-        height: 0;
         padding-top: 33.3333333%;
         position: absolute;
         top: 50%;
         left: 50%;
         z-index: 5;
         transform: translateX(-50%) translateY(-50%);
-        overflow: hidden;
         &:before{
-            display: block;
-            width: 100%;
-            height: 100%;
-            position: absolute;
             top: 0;
             left: 0;
-            content: "";
             border: 60px solid @grey;
-            border-radius: 50%;
-            box-sizing: border-box;
-            overflow: hidden;
         }
     }
     .info-holder{
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        z-index: 10;
-        transform: translateX(-50%) translateY(-50%);
-        backface-visibility: hidden;
+        width: 100%;
+        max-width: 100%;
+        float: none;
         .upper-title,
-        h1,
-        p{
-            color: @white;
+        h1, p{
             text-align: center;
         }
-        .upper-title{
-            display: block;
-            font-family: @djsl;
-            font-size: 1.5em;
+        .upper-title{ padding: 0; }
+        .underline{
+            width: 80px;
+            margin: 20px auto 40px;
         }
-        .underline{ margin: 20px auto 30px; }
-        h1{ text-transform: uppercase; }
-        p{ padding: 0 40px; }
+        p{
+            padding: 0 20%;
+        }
         .btn{ margin: 80px auto 0; }
         .social-holder{
             display: block;
@@ -179,16 +290,110 @@
 /*  center part end                           */
 /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
 
-/*
-&:before{
-    display: block;
-    width: 100%;
-    height: 100%;
-    position: absolute;
-    top: 0;
-    left: 0;
-    background: @black;
-    transition: all .6s @easing 0s;
-    content: "";
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+/*  top left part start                       */
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+.part-holder.top-left{
+    .photo-holder{
+        background: url("@{images}makar-part.jpg") no-repeat 50% 0%;
+        background-size: cover;    
+    }
+    .right-content-holder{
+        .initials-letter{
+            &.a{
+                top: 100%;
+                left: 0;
+                transform: translateX(-50%) translateY(-75%);
+            }
+            &.m{
+                top: 0;
+                right: 0;
+                transform: translateX(-25%) translateY(-35%);
+            }
+        }
+        .circle-dashed{
+            top: auto;
+            left: auto;
+            right: 80px;
+            bottom: 80px;
+            pointer-events: none;
+        }
+        .background-date-holder{ transform: translateX(-40px) translateY(-30%); }
+        .close{
+            top: 80px;
+            right: 80px;
+        }
+    }
 }
- */
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+/*  top left part end                         */
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+/*  top middle part start                     */
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+.part-holder.top-middle{
+    background: @black url("@{images}top-middle-bg.png") no-repeat 50% 100%;
+    .close{
+        top: 80px;
+        right: 80px;
+    }
+}
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+/*  top middle part end                       */
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+/*  top right part start                      */
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+.part-holder.top-right{
+    .photo-holder{
+        background: url("@{images}kytikov-part.jpg") no-repeat 50% 0%;
+        background-size: cover;    
+    }
+    .right-content-holder{
+        .initials-letter{
+            &.a{
+                top: 0;
+                left: 0;
+                transform: translateX(50%) translateY(-35%);
+            }
+            &.k{
+                right: 0;
+                bottom: 0;
+                transform: translateX(30%) translateY(30%);
+            }
+        }
+        .background-date-holder{
+            transform: translateX(40px) translateY(-30%);
+            text-align: right;
+        }
+        .background-circle-holder{
+            right: auto;
+            left: 0;
+            bottom: 0;
+            &:before{ left: -50%; }
+        }
+        .circle-dashed{
+            top: auto;
+            left: 80px;
+            bottom: 80px;
+            pointer-events: none;
+        }
+        .close{
+            top: 80px;
+            left: 80px;
+            &:before{
+                left: auto;
+                right: 0;
+                transform: translateX(60px);
+            }
+            &:hover{
+                &:before{ transform: translateX(80px); }
+            }
+        }
+    }
+}
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+/*  top right part end                        */
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
