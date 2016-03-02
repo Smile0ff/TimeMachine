@@ -35,22 +35,71 @@
 </head>
 <body>
 	<div id="page">
-		<div id="loader">
-			<div class="part top-left"><span></span></div>
-			<div class="part top-right"><span></span></div>
-			<div class="part bottom-left"><span></span></div>
-			<div class="part bottom-right"><span></span></div>
-			<figure><img src="build/images/loader.png" alt="loader image"></figure>
-		</div>
+		<header id="header">
+			<a href="#" class="logo"><img src="build/images/logo.png" alt="Time Machine"></a>
+			<div class="menu-btn switcher" data-part="topMiddle">
+				<span class="line"></span>
+				<span class="line"></span>
+				<span class="line"></span>
+			</div>
+		</header>
 		<main id="content">
-			<section class="outer part-holder center"></section>
+			<section class="outer part-holder center">
+				<div class="circle-holder"></div>
+				<ul class="photo-holder">
+					<li>
+						<div class="circle-dashed-icon switcher" data-part="topLeft">
+							<span class="circle"></span>
+							<span class="icon icon-microphone"></span>
+						</div>
+						<div class="participant-photo"></div>
+					</li>
+					<li>
+						<div class="circle-dashed-icon switcher" data-part="topRight">
+							<span class="circle"></span>
+							<span class="icon icon-guitar"></span>
+						</div>
+						<div class="participant-photo"></div>
+					</li>
+					<li>
+						<div class="circle-dashed-icon switcher" data-part="bottomLeft">
+							<span class="circle"></span>
+							<span class="icon icon-drum"></span>
+						</div>
+						<div class="participant-photo"></div>
+					</li>
+					<li>
+						<div class="circle-dashed-icon switcher" data-part="bottomRight">
+							<span class="circle"></span>
+							<span class="icon icon-piano"></span>
+						</div>
+						<div class="participant-photo"></div>
+					</li>
+				</ul>
+				<div class="inner info-holder">
+					<span class="upper-title">Rock Band</span>
+					<span class="underline"></span>
+					<h1>Time Machine</h1>
+					<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eligendi vel impedit, distinctio explicabo ratione placeat maxime ipsa facilis eos accusantium corporis labore deleniti officiis.</p>
+					<div class="btn">
+						<a href="#">next concert</a>
+					</div>
+					<ul class="social-holder">
+						<li><a href="#" class="icon icon-twitter"></a></li>
+						<li><a href="#" class="icon icon-youtube"></a></li>
+					</ul>
+				</div>
+			</section>
 			<section class="outer part-holder top-left"></section>
 			<section class="outer part-holder top-middle"></section>
 			<section class="outer part-holder top-right"></section>
 			<section class="outer part-holder bottom-left"></section>
-			<section class="outer part-holder bottom-middle"></section>
 			<section class="outer part-holder bottom-right"></section>
 		</main>
+		<div id="loader">
+			<div class="circle"></div>
+			<figure><img src="build/images/loader.png" alt="loader image"></figure>
+		</div>
 	</div>
 	<script src="jspm_packages/system.js"></script>
 	<script src="jspm.config.js"></script>
@@ -61,7 +110,7 @@
 
 			window.setTimeout(function(){
 				body.classList.add("__loaded");
-			}, 2000);
+			}, 1000);
 
 		}, false);
 
