@@ -170,7 +170,6 @@ body, html{
     top: 50%;
     left: 0;
     transform: translateY(-50%);
-    backface-visibility: hidden;
     ul{
         display: block;
         text-align: center;
@@ -284,8 +283,8 @@ body, html{
         width: 100%;
         height: 100%;
         position: absolute;
-        top: 50%;
-        left: 50%;
+        top: 0;
+        left: 0;
         content: "";
         border: 80px solid @grey;
         border-radius: 50%;
@@ -384,3 +383,26 @@ body, html{
 /*  close end                                 */
 /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
 
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+/*  adaptive start                            */
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+@media only screen and @notebook{
+
+    h1{ font-size: 4.5em; }
+    h2{ font-size: 4em; }
+    h3{ font-size: 1.25em; }
+    h4{ font-size: 1.125em; }
+    
+    #menu ul li a{
+        font-size: 2em;
+        padding: 20px 40px 20px;
+        &:after{
+            width: 80px;
+            margin-left: -40px;
+        }
+    }
+    
+}
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+/*  adaptive end                              */
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/

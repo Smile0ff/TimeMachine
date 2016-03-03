@@ -26,7 +26,7 @@
     left: 0;
     background: @black;
     transition: all 1.2s @easing 0s;
-    overflow: hidden;
+    overflow: visible;
     .photo-holder{
         width: 37.5%;
         height: 100%;
@@ -83,8 +83,6 @@
         width: 50%;
         padding-top: 50%;
         position: absolute;
-        right: 0;
-        bottom: 0;
     }
     .circle-dashed{
         position: absolute;
@@ -118,6 +116,10 @@
                 margin: 80px 80px 0 0;
                 float: right;
             }
+        }
+        .background-date-holder{
+            transform: translateX(40px) translateY(-30%);
+            text-align: right;
         }
         .close{
             &:before{
@@ -328,7 +330,13 @@
             bottom: 80px;
             pointer-events: none;
         }
-        .background-date-holder{ transform: translateX(-40px) translateY(-30%); }
+        .background-circle-holder{
+            right: 0;
+            bottom: 0;
+            &:before{
+                transform: translateX(50%) translateY(50%);
+            }
+        }
         .close{
             top: 80px;
             right: 80px;
@@ -374,15 +382,12 @@
                 transform: translateX(30%) translateY(30%);
             }
         }
-        .background-date-holder{
-            transform: translateX(40px) translateY(-30%);
-            text-align: right;
-        }
         .background-circle-holder{
-            right: auto;
             left: 0;
             bottom: 0;
-            &:before{ left: -50%; }
+            &:before{
+                transform: translateX(-50%) translateY(50%);
+            }
         }
         .circle-dashed{
             top: auto;
@@ -423,9 +428,9 @@
         }
         .background-circle-holder{
             top: 0;
+            right: 0;
             &:before{
-                top: -50%;
-                left: 50%;
+                transform: translateX(50%) translateY(-50%);
             }
         }
         .circle-dashed{
@@ -462,19 +467,14 @@
             &.d{
                 top: 0;
                 right: 0;
-                transform: translateX(40%) translateY(-30%);
+                transform: translateX(40%) translateY(-35%);
             }
-        }
-        .background-date-holder{
-            transform: translateX(40px) translateY(-30%);
-            text-align: right;
         }
         .background-circle-holder{
             top: 0;
             left: 0;
             &:before{
-                top: -50%;
-                left: -50%;
+                transform: translateX(-50%) translateY(-50%);
             }
         }
         .circle-dashed{
@@ -490,4 +490,20 @@
 }
 /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
 /*  bottom right part end                     */
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+/*  adaptive start                            */
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+@media only screen and @notebook{
+
+    .part-holder{
+        .info-holder{
+            .upper-title{ font-size: 1.125em; }
+        }
+    }
+
+}
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+/*  adaptive end                              */
 /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
