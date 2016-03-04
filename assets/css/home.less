@@ -26,6 +26,7 @@
     left: 0;
     background: @black;
     transition: all 1.2s @easing 0s;
+    will-change: transform;
     overflow: visible;
     .photo-holder{
         width: 37.5%;
@@ -297,9 +298,42 @@
             }
         }
     }
+    .arrow-down-holder{
+        display: none;
+        width: 48px;
+        height: 48px;
+        position: absolute;
+        left: 50%;
+        bottom: 80px;
+        z-index: 10;
+        margin-left: -24px;
+        overflow: hidden;
+        .icon{
+            display: block;
+            font-size: 2em;
+            color: @white;
+            line-height: 48px;
+            text-align: center;
+            &:before{ vertical-align: middle; }
+        }
+    }
 }
 /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
 /*  center part end                           */
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+/*  top middle part start                     */
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+.part-holder.top-middle{
+    background: @black url("@{images}top-middle-bg.png") no-repeat 50% 100%;
+    .close{
+        top: 80px;
+        right: 80px;
+    }
+}
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+/*  top middle part end                       */
 /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
 
 /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
@@ -345,20 +379,6 @@
 }
 /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
 /*  top left part end                         */
-/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
-
-/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
-/*  top middle part start                     */
-/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
-.part-holder.top-middle{
-    background: @black url("@{images}top-middle-bg.png") no-repeat 50% 100%;
-    .close{
-        top: 80px;
-        right: 80px;
-    }
-}
-/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
-/*  top middle part end                       */
 /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
 
 /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
@@ -498,8 +518,145 @@
 @media only screen and @notebook{
 
     .part-holder{
+        .background-date-holder{
+            transform: translateX(-40px) translateY(-16%);
+        }
+        &.right-side{
+            .background-date-holder{
+                transform: translateX(40px) translateY(-16%);
+            }
+        }
+    }
+
+}
+
+@media only screen and @tablet{
+    
+    #content{ overflow: visible; }
+
+    .part-holder{
+        position: relative;
+        z-index: 0;
+        overflow: hidden;
+        &.center,
+        &.top-left,
+        &.top-middle,
+        &.top-right,
+        &.bottom-left,
+        &.bottom-right{
+            transform: translateX(0%) translateY(0%);
+        }
+        .photo-holder,
+        .right-content-holder{
+            width: 100%;
+            height: 100%;
+            float: none;
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+        .photo-holder{ overflow: hidden; }
+        .right-content-holder{ z-index: 10; }
         .info-holder{
-            .upper-title{ font-size: 1.125em; }
+            top: auto;
+            left: 0;
+            bottom: 80px;
+            transform: translateY(0%);
+            .upper-title{ padding: 0 0 20px 40px; }
+            .underline{ margin-left: 0px; }
+            h2{ padding: 40px 0 0 40px;  }
+            p{ padding: 20px 40px 0 40px; }
+            .btn{ margin: 80px 0 0 40px; }
+        }
+        .initials-letter,
+        .background-date-holder,
+        .background-circle-holder,
+        .circle-dashed,
+        .close{
+            display: none;
+        }
+        &.right-side{
+            .info-holder{
+                .upper-title{ padding: 0 40px 20px 0; }
+                .underline{ margin: 0; }
+                h2{ padding: 40px 40px 0 40px; }
+                p{ padding: 20px 40px 0; }
+                .btn{ margin: 80px 40px 0 0; }
+            }
+        }
+    }
+
+    .part-holder.center{
+        .photo-holder{ display: none; }
+        .background-circle-holder{
+            display: block;
+            width: 80%;
+            padding-top: 80%;
+        }
+        .info-holder{
+            top: 50%;
+            bottom: auto;
+            transform: translateY(-50%);
+            p{ padding: 0 40px; }
+        }
+        .arrow-down-holder{ display: block; }
+    }
+    
+    .part-holder.top-middle{
+        position: absolute;
+        z-index: 20;
+        transform: translateY(-100%);
+        &.active{ transform: translateY(0%); }
+        .close{
+            display: block;
+        }
+    }
+
+}
+
+@media only screen and @mobile{
+
+    .part-holder{
+        .info-holder{
+            bottom: 40px;
+            .upper-title{ display: none; }
+            .underline{ display: none; }
+            h2{ padding: 0 20px 0;  }
+            p{ padding: 20px 20px 0; }
+            .btn{ margin: 40px 0 0 20px; }
+        }
+        &.right-side{
+            .info-holder{
+                h2{ padding: 0 20px 0; }
+                p{ padding: 20px 20px 0; }
+                .btn{ margin: 40px 20px 0 0; }
+            }
+        }
+    }
+
+    .part-holder.center{
+        .info-holder{
+            .upper-title,
+            .underline{
+                display: none;
+            }
+            h1{
+                margin-top: 40px;
+                padding: 0 40px;
+            }
+            p{ padding: 0 20px; }
+            .btn{ margin: 40px auto 0; }
+            .social-holder{ width: 100%; }
+        }
+        .arrow-down-holder{
+            display: none;
+        }
+    }
+
+    .part-holder.top-middle{
+        .close{
+            top: 40px;
+            right: 40px;
         }
     }
 

@@ -318,6 +318,7 @@ body, html{
     font-size: 20vw;
     color: @grey;
     text-transform: uppercase;
+    overflow: hidden;
 }
 /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
 /*  initials letter end                       */
@@ -388,7 +389,7 @@ body, html{
 /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
 @media only screen and @notebook{
 
-    h1{ font-size: 4.5em; }
+    h1{ font-size: 5em; }
     h2{ font-size: 4em; }
     h3{ font-size: 1.25em; }
     h4{ font-size: 1.125em; }
@@ -402,6 +403,57 @@ body, html{
         }
     }
     
+}
+
+@media only screen and @mobile{
+
+    h1{ font-size: 3em; }
+    h2{ font-size: 2.5em; }
+    h3{ font-size: 1.125em; }
+    h4{ font-size: 1em; }
+
+    p, a, time{ font-size: .875em; }
+
+    #header{
+        z-index: 25;
+        & > .logo{
+            width: 40px;
+            height: 40px;
+            margin: 40px 0 0 40px;
+        }
+        & > .menu-btn{
+            width: 40px;
+            height: 22px;
+            margin: 40px 40px 0 0;
+        }
+    }
+
+    .lang-holder{
+        width: 116px;
+        height: 48px;
+        margin: 40px 0 0 40px;
+    }
+    
+    #menu{
+        top: auto;
+        bottom: 20px;
+        transform: translateY(0%);
+        ul li a{
+            font-size: 1.75em;
+            padding: 0 20px 20px;
+            &:first-child a{ padding: 0 20px 20px; }
+            &:last-child a{ padding-bottom: 0; }
+            &:after{ display: none; }
+        }
+    }
+
+    *[class^="btn"]{
+        width: 180px;
+        height: 50px;
+        overflow: hidden;
+        & > a{ line-height: 50px; }
+    }
+
 }
 /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
 /*  adaptive end                              */

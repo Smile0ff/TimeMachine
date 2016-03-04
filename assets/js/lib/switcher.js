@@ -18,10 +18,10 @@ class Swicther{
         let target = $(e.target).closest(".switcher");
         let partClassName = target.data("part");
 
-        activeClass = partClassName;
-
         page.addClass(partClassName);
         target.addClass("active");
+
+        activeClass = partClassName;
 
         return false;
     }

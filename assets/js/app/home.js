@@ -1,14 +1,21 @@
 "use strict";
 
 import "jquery";
+//import Loader from "../lib/loader";
+import isMobile from "../lib/isMobile";
 import Switcher from "../lib/switcher";
-import MobileHover from "../lib/mobileHover";
+import MobileMenu from "../lib/mobileMenu";
+
+//new Loader();
 
 $(() => {
 
-    //here should go mobile detection and check
-
-    new Switcher(); //disable on mobile
-    new MobileHover(); //active on mobile
+    if(!isMobile()){
+        new Switcher();
+    }
+    
+    if(isMobile()){
+        new MobileMenu();
+    }
 
 });
