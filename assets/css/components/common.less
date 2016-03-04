@@ -385,6 +385,67 @@ body, html{
 /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
 
 /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+/*  landscape start                           */
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+#landscape-cap-holder{
+    display: none;
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 99999;
+    background: @black;
+    overflow: hidden;
+    .circle-holder{
+        width: 50%;
+        height: 0;
+        padding-top: 50%;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translateX(-50%) translateY(-50%);
+        overflow: hidden;
+        &:before{
+            display: block;
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            top: 0;
+            left: 0;
+            border: 80px solid @grey;
+            border-radius: 50%;
+            box-sizing: border-box;
+            content: "";
+        }
+    }
+    .inner{
+        max-width: 800px;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        z-index: 20;
+        transform: translateX(-50%) translateY(-50%);
+        .underline{
+            margin: 0 auto;
+        }
+        h2, p{
+            color: @white;
+            text-align: center;
+        }
+        h2{
+            font-family: @djsc;
+            padding: 40px 40px 20px;
+            text-transform: uppercase;
+        }
+        p{ font-size: 1.125em; }
+    }
+}
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+/*  landscape end                             */
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
 /*  adaptive start                            */
 /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
 @media only screen and @notebook{
@@ -453,6 +514,13 @@ body, html{
         overflow: hidden;
         & > a{ line-height: 50px; }
     }
+
+}
+
+@media only screen @landscape{
+    
+    #content{ display: none; }
+    #landscape-cap-holder{ display: block; }
 
 }
 /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
