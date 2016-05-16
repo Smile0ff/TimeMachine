@@ -11,7 +11,7 @@ h1, h2, h3, p, a, time, span, small{
 h1, h2, h3{ font-family: @djsc; }
 p, a, span, time, small{ font-family: @djs; }
 
-h1{ font-size: 5.5em; }
+h1{ font-size: 6em; }
 h2{ font-size: 4.5em; }
 h3{ font-size: 1.5em; }
 h4{ font-size: 1.25em; }
@@ -55,51 +55,17 @@ body, html{
     position: absolute;
     top: 0;
     left: 0;
-    z-index: 10;
+    z-index: 15;
     background: transparent;
+    opacity: 1;
+    visibility: visible;
+    transition: all .75s @easing;
     & > .logo{
         display: block;
         width: 80px;
         height: 80px;
         margin: 80px 0 0 80px;
-        float: left;
         overflow: hidden;
-    }
-    & > .menu-btn{
-        width: 40px;
-        height: 22px;
-        margin: 80px 80px 0 0;
-        float: right;
-        position: relative;
-        cursor: pointer;
-        .line{
-            display: block;
-            width: 100%;
-            height: 2px;
-            position: absolute;
-            top: 0;
-            left: 0;
-            transition: all .6s @easing 0s;
-            background: @white;
-            opacity: 1;
-            transform: translateX(0%);
-            overflow: hidden;
-            &:nth-child(2){ top: 10px; }
-            &:nth-child(3){ top: 20px; }
-        }
-        &:hover{
-            .line{
-                transform: translateX(20%);
-                &:nth-child(2){ transform: translateX(-20%); }
-            }
-        }
-        &.active{
-            .line{
-                opacity: 0;
-                transform: translateX(100%);
-                &:nth-child(2){ transform: translateX(-100%); }
-            }
-        }
     }
 }
 /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
@@ -161,59 +127,113 @@ body, html{
 /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
 
 /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
-/*  menu start                                */
+/*  toggle menu                               */
 /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
-#menu{
-    width: 100%;
-    height: auto;
-    position: absolute;
-    top: 50%;
-    left: 0;
-    transform: translateY(-50%);
-    ul{
+#toggle-menu{
+    width: 100px;
+    height: 22px;
+    position: fixed;
+    top: 80px;
+    right: 80px;
+    z-index: 20;
+    cursor: pointer;
+    transform: translateY(0%);
+    opacity: 1;
+    visibility: visible;
+    transition: all .5s @easing .25s;
+    & > .line{
         display: block;
-        text-align: center;
-        li{
-            display: block;
-            width: 100%;
-            height: auto;
-            a{
-                display: inline-block;
-                font-family: @djsc;
-                font-size: 2.5em;
-                color: @white;
-                text-transform: uppercase;
-                padding: 40px 40px 20px;
-                position: relative;
-                &:after{
-                    display: block;
-                    width: 120px;
-                    height: 2px;
-                    position: absolute;
-                    left: 50%;
-                    bottom: 0;
-                    content: "";
-                    margin-left: -60px;
-                    background: @white;
-                    opacity: 0;
-                    transition: all .6s @easing 0s;
-                    transform: scaleX(0) translateY(20px);
-                    overflow: hidden;
-                }
+        width: 40px;
+        height: 2px;
+        position: absolute;
+        top: 0;
+        left: 0;
+        background: @white;
+        transition: all .5s @easing .25s;
+        &:nth-child(2){
+            transform: translateY(10px);
+        }
+        &:nth-child(3){
+            transform: translateY(20px);
+        }
+    }
+    & > .title{
+        display: block;
+        width: 40px;
+        height: 20px;
+        position: absolute;
+        top: 50%;
+        right: 0;
+        z-index: 10;
+        color: @white;
+        opacity: 0;
+        visibility: hidden;
+        transform: translateY(-50%);
+        transition: all .25s @easing 0s;
+    }
+    &:hover{
+        & > .line{
+            transition: all .5s @easing 0s;
+            &:nth-child(1){
+                transform: translateY(4px);
             }
-            &:first-child{
-                a{ padding: 0px 40px 20px; }
-            }
-            &:hover,
-            &.active{
-                a{
-                    &:after{
-                        opacity: 1;
-                        transform: scaleX(1) translateY(0px);
-                    }
-                }
+            &:nth-child(3){
+                transform: translateY(16px);
             }
         }
+    }
+    &.active{
+        top: 50%;
+        transform: translateY(-50%);
+        transition: all .5s @easing 0s;
+        & > .line{
+            &:nth-child(1),
+            &:nth-child(3){
+                transform: translateY(10px);
+            }
+        }
+        & > .title{
+            opacity: 1;
+            visibility: visible;
+            transition: all .25s @easing .5s;
+        }
+    }
+}
+#menu-substrate{
+    width: 160px;
+    height: 160px;
+    position: fixed;
+    top: 50%;
+    right: 0;
+    z-index: 16;
+    transform: translateX(100%) translateY(-50%);
+    transition: all .5s @easing;
+    background: @grey;
+    overflow: hidden;
+    &.active{
+        transform: translateX(0%) translateY(-50%);
+    }
+}
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+/*  toggle end                                */
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+/*  menu start                                */
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+#menu-holder{
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 15;
+    background: @black;
+    transform: translateX(-100%);
+    transition: all .5s @easing;
+    overflow: hidden;
+    &.active{
+        transform: translateX(0%);
     }
 }
 /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
@@ -221,62 +241,18 @@ body, html{
 /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
 
 /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
-/*  dashed-circle start                       */
-/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
-.circle-dashed{
-    display: block;
-    width: 48px;
-    height: 48px;
-    position: relative;
-    cursor: pointer;
-    overflow: hidden;
-    &:before,
-    & > span{
-        display: block;
-        width: 100%;
-        height: 100%;
-        position: absolute;
-        top: 0;
-        left: 0;
-        transition: all .6s @easing 0s;
-    }
-    &:before{
-        content: "";
-        .dashed();
-        transform: rotate(0deg);
-    }
-    & > span{
-        z-index: 5;
-        color: @white;
-        font-size: 1.125em;
-        text-align: center;
-        background: transparent;
-        &:before{
-            line-height: 48px;
-            vertical-align: middle;
-        }
-    }
-    &:hover,
-    &.active{
-        &:before{
-            transform: rotate(180deg);
-            background: @white;
-        }
-        & > span{ color: @grey; }
-    }
-}
-/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
-/*  dashed-circle end                         */
-/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
-
-/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
 /*  background circle start                   */
 /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
-.background-circle-holder{
-    width: 100%;
+#bg-circle-holder,
+.bg-circle-holder-inside{
+    width: 33.33333333333333%;
     height: 0;
-    padding-top: 100%;
-    position: relative;
+    padding-top: 33.33333333333333%;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    z-index: 10;
+    transform: translateX(-50%) translateY(-50%);
     overflow: hidden;
     &:before{
         display: block;
@@ -286,10 +262,14 @@ body, html{
         top: 0;
         left: 0;
         content: "";
-        border: 80px solid @grey;
+        border: 60px solid @grey;
         border-radius: 50%;
         box-sizing: border-box;
     }
+}
+#bg-circle-holder-inside{
+    position: absolute;
+    transition: all .25s @easing;
 }
 /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
 /*  background circle end                     */
@@ -300,7 +280,7 @@ body, html{
 /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
 .underline{
     display: block;
-    width: 120px;
+    width: 80px;
     height: 2px;
     background: @white;
     overflow: hidden;
@@ -310,18 +290,36 @@ body, html{
 /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
 
 /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
-/*  initials letter start                     */
+/*  arrows start                              */
 /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
-.initials-letter{
+*[class^="arrow"]{
     display: inline-block;
-    position: absolute;
-    font-size: 20vw;
-    color: @grey;
-    text-transform: uppercase;
-    overflow: hidden;
+    width: 47px;
+    height: 8px;
+    position: relative;
+    transition: all .5s @easing;
+    &:before{
+        display: block;
+        width: 40px;
+        height: 2px;
+        margin: 3px 0;
+        background: @white;
+        content: "";
+    }
+    &:after{
+        display: block;
+        height: 0;
+        position: absolute;
+        top: 0;
+        right: 0;
+        border-top: 4px solid transparent;
+        border-bottom: 4px solid transparent;
+        border-left: 7px solid @white;
+        content: "";
+    }
 }
 /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
-/*  initials letter end                       */
+/*  arrows end                                */
 /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
 
 /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
@@ -329,24 +327,49 @@ body, html{
 /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
 *[class^="btn"]{
     width: 220px;
-    height: 60px;
+    height: 30px;
     overflow: hidden;
     & > a{
         display: block;
         width: 100%;
         height: 100%;
-        border: 2px solid @white;
-        box-sizing: border-box;
-        transition: all .6s @easing;
-        line-height: 60px;
-        font-family: @djsc;
-        color: @white;
-        text-transform: uppercase;
-        text-align: center;
+        position: relative;
         overflow: hidden;
+        & > span,
+        &:after{
+            display: block;
+            width: 100%;
+            height: 20px;
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+        & > span{
+            z-index: 10;
+            font-size: 1em;
+            color: @white;
+            text-align: center;
+        }
+        &:after{
+            top: 10px;
+            content: "";
+            background: @grey;
+            transition: all .25s @easing;
+        }
         &:hover{
-            background: @white;
-            color: @grey;
+            &:after{
+                transform: translateY(18px);
+                background: @white;
+            }
+        }
+    }
+    &.btn-small{
+        width: 160px;
+        & > a{
+            & > span{
+                font-family: @djsl;
+                font-size: .875em;
+            }
         }
     }
 }

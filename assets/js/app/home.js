@@ -3,12 +3,15 @@
 import "jquery";
 //import Loader from "../lib/loader";
 import isMobile from "../lib/isMobile";
-import Switcher from "../lib/switcher";
-import MobileMenu from "../lib/mobileMenu";
+import Menu from "../controllers/menu";
+import Switcher from "../controllers/switcher";
+
 
 //new Loader();
 
 $(() => {
+
+    new Menu();
 
     if(!isMobile()){
         new Switcher();
