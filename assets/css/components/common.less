@@ -59,7 +59,7 @@ body, html{
     background: transparent;
     opacity: 1;
     visibility: visible;
-    transition: all .75s @easing;
+    transition: all .75s @easing 1s;
     & > .logo{
         display: block;
         width: 80px;
@@ -70,174 +70,6 @@ body, html{
 }
 /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
 /*  header end                                */
-/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
-
-/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
-/*  langs start                               */
-/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
-.lang-holder{
-    width: 116px;
-    height: 48px;
-    margin: 80px 0 0 80px;
-    .item{
-        width: 48px;
-        height: 48px;
-        float: left;
-        position: relative;
-        margin-right: 20px;
-        &:last-child{ margin-right: 0; }
-        &:before,
-        a{
-            display: block;
-            width: 100%;
-            height: 100%;
-            position: absolute;
-            top: 0;
-            left: 0;
-            transition: all .6s @easing 0s;
-        }
-        &:before{
-            .dashed();
-            content: "";
-            transform: rotate(0deg);
-            background: transparent;
-        }
-        a{
-            z-index: 5;
-            text-align: center;
-            line-height: 48px;
-            color: @white;
-            font-size: .875em;
-            text-transform: uppercase;
-            background: transparent;
-            border-radius: 50%;
-        }
-        &:hover,
-        &.active{
-            &:before{
-                transform: rotate(180deg);
-                background: @white;
-            }
-            a{ color: @grey; }
-        }
-    }
-}
-/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
-/*  langs end                                 */
-/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
-
-/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
-/*  toggle menu                               */
-/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
-#toggle-menu{
-    width: 100px;
-    height: 22px;
-    position: fixed;
-    top: 80px;
-    right: 80px;
-    z-index: 20;
-    cursor: pointer;
-    transform: translateY(0%);
-    opacity: 1;
-    visibility: visible;
-    transition: all .5s @easing .25s;
-    & > .line{
-        display: block;
-        width: 40px;
-        height: 2px;
-        position: absolute;
-        top: 0;
-        left: 0;
-        background: @white;
-        transition: all .5s @easing .25s;
-        &:nth-child(2){
-            transform: translateY(10px);
-        }
-        &:nth-child(3){
-            transform: translateY(20px);
-        }
-    }
-    & > .title{
-        display: block;
-        width: 40px;
-        height: 20px;
-        position: absolute;
-        top: 50%;
-        right: 0;
-        z-index: 10;
-        color: @white;
-        opacity: 0;
-        visibility: hidden;
-        transform: translateY(-50%);
-        transition: all .25s @easing 0s;
-    }
-    &:hover{
-        & > .line{
-            transition: all .5s @easing 0s;
-            &:nth-child(1){
-                transform: translateY(4px);
-            }
-            &:nth-child(3){
-                transform: translateY(16px);
-            }
-        }
-    }
-    &.active{
-        top: 50%;
-        transform: translateY(-50%);
-        transition: all .5s @easing 0s;
-        & > .line{
-            &:nth-child(1),
-            &:nth-child(3){
-                transform: translateY(10px);
-            }
-        }
-        & > .title{
-            opacity: 1;
-            visibility: visible;
-            transition: all .25s @easing .5s;
-        }
-    }
-}
-#menu-substrate{
-    width: 160px;
-    height: 160px;
-    position: fixed;
-    top: 50%;
-    right: 0;
-    z-index: 16;
-    transform: translateX(100%) translateY(-50%);
-    transition: all .5s @easing;
-    background: @grey;
-    overflow: hidden;
-    &.active{
-        transform: translateX(0%) translateY(-50%);
-    }
-}
-/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
-/*  toggle end                                */
-/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
-
-/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
-/*  menu start                                */
-/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
-#menu-holder{
-    width: 100%;
-    height: 100%;
-    position: fixed;
-    top: 0;
-    left: 0;
-    z-index: 15;
-    background: @black;
-    transform: translateX(-100%);
-    transition: all .5s @easing;
-    overflow: hidden;
-    &.active{
-        transform: translateX(0%);
-    }
-}
-/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
-/*  menu end                                  */
 /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
 
 /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
@@ -316,6 +148,12 @@ body, html{
         border-bottom: 4px solid transparent;
         border-left: 7px solid @white;
         content: "";
+    }
+    &.arrow-small{
+        width: 27px;
+        &:before{
+            width: 20px;
+        }
     }
 }
 /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/

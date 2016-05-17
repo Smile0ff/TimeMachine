@@ -1,4 +1,5 @@
 @import "components/common.less";
+@import "components/menu.less";
 @import "components/loader.less";
 /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
 /*  layout start                              */
@@ -24,6 +25,7 @@
     #header{
         opacity: 0;
         visibility: hidden;
+        transition: all .5s @easing 0s;
     }
 }
 /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
@@ -40,7 +42,7 @@
     #toggle-menu{
         opacity: 0;
         visibility: hidden;
-        transition: all .75s @easing 0s;
+        transition: all .5s @easing 0s;
     }
 }
 /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
