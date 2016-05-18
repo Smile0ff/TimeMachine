@@ -5,14 +5,14 @@
     width: 100px;
     height: 22px;
     position: fixed;
-    top: 80px;
+    top: 91px;
     right: 80px;
     z-index: 20;
     cursor: pointer;
-    transform: translateY(0%);
     opacity: 1;
+    transform: translateY(-50%);
+    transition: top .75s @easing .25s, opacity .75s @easing 1s;
     visibility: visible;
-    transition: all .75s @easing .5s;
     & > .line{
         display: block;
         width: 40px;
@@ -57,7 +57,7 @@
     &.active{
         top: 50%;
         transform: translateY(-50%);
-        transition: all .5s @easing 0s;
+        transition: top .75s @easing 0s;
         & > .line{
             &:nth-child(1),
             &:nth-child(3){
@@ -331,4 +331,160 @@
 }
 /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
 /*  menu end                                  */
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+/*  adaptive start                            */
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+@media only screen and @tablet{
+    
+    #toggle-menu{
+        right: 20px;
+    }
+
+    #menu-substrate{
+        width: 80px;
+        height: 80px;
+    }
+
+    #menu-holder{
+        .lang{
+            width: 80px;
+            height: 80px;
+            & > a{ line-height: 80px; }  
+        }
+        .menu{
+            .entitled{ padding-left: 80px; }
+            & > nav{
+                li{
+                    width: 320px;
+                    padding-left: 160px;
+                }
+            }
+        }
+        .social-holder{ padding-left: 80px; }
+        .participants-holder{ display: none; }
+    }
+
+}
+
+@media only screen and @mobileL{
+
+    #toggle-menu{ top: 71px; }
+
+}
+
+@media only screen and @mobileM{
+    
+    #toggle-menu{
+        right: -20px;
+        transition: all .75s @easing 0s;
+        &.active{
+            top: 71px;
+            right: 40px;
+            transition: all .75s @easing 0s;
+        }
+    }
+    #menu-substrate{ display: none; }
+
+    #menu-holder{
+        .lang{
+            width: 80px;
+            height: 80px;
+            & > a{ line-height: 80px; }  
+        }
+        .menu{
+            .entitled{
+                font-size: 1em;
+                padding-left: 40px;
+                &:before{ width: 40px; }
+            }
+            & > nav{
+                margin: 40px 0 0;
+                li{
+                    width: 240px;
+                    padding-left: 80px;
+                }
+            }
+        }
+        .social-holder{
+            height: auto;
+            bottom: 40px;
+            padding-left: 40px;
+            li{
+                display: block;
+                width: 100%;
+                line-height: 20px;
+                a{
+                    display: block;
+                    width: 100%;
+                    margin-right: 0;
+                    &:before{
+                        width: 20px;
+                    }
+                }
+            }
+        }
+    }
+
+}
+
+@media only screen and @mobileS{
+    
+    #toggle-menu{
+        top: 51px;
+        right: -40px;
+        &.active{
+            top: 51px;
+        }
+    }
+
+    #menu-holder{
+        .menu{
+            .entitled{
+                padding-left: 20px;
+            }
+            & > nav{
+                margin: 20px 0 0;
+                li{
+                    width: 200px;
+                    padding-left: 40px;
+                    margin-bottom: 10px;
+                    a{
+                        width: 120px;
+                        font-size: 1em;
+                        span{
+                            font-size: 1.125em;
+                            &.num{
+                                margin-right: 10px;
+                                font-size: .75em;
+                            }
+                        }
+                    } 
+                }
+            }
+        }
+        .social-holder{
+            height: auto;
+            bottom: 40px;
+            padding-left: 20px;
+            li{
+                display: inline-block;
+                width: auto;
+                line-height: 20px;
+                a{
+                    display: inline-block;
+                    width: auto;
+                    margin-right: 10px;
+                    &:before{
+                        display: none;
+                    }
+                }
+            }
+        }
+    }
+
+}
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+/*  adaptive end                              */
 /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/

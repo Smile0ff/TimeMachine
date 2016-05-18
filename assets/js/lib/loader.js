@@ -14,7 +14,7 @@ class Loader{
         
         window.setTimeout(() => {
             body.addClass("__loaded");
-        }, 2000);
+        }, 500);
 
         return false;
     }

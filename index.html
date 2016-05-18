@@ -5,7 +5,7 @@
 	<meta charset="UTF-8">
 	<meta name="HandheldFriendly" content="True">
 	<meta name="MobileOptimized" content="320">
-	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, minimal-ui">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 	<meta name="format-detection" content="telephone=no">
 	<meta name="format-detection" content="address=no">
 	<meta name="mobile-web-app-capable" content="yes">
@@ -170,7 +170,7 @@
 					<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eligendi vel impedit, distinctio explicabo ratione placeat maxime ipsa facilis eos accusantium corporis labore deleniti officiis.</p>
 					<a href="#">Affiche<span class="arrow"></span></a>
 				</div>
-				<div class="arrow-down-holder">
+				<div class="scroll-down-holder">
 					<span class="icon icon-arrow-down"></span>
 				</div>
 			</section>
@@ -254,11 +254,13 @@
 			</div>
 		</div>
 		<div id="loader">
-			<div class="circle"></div>
-			<figure><img src="build/images/loader.png" alt="loader image"></figure>
+			<div class="logo">
+				<img src="build/images/logo.png" alt="Time Machine logo">
+			</div>
+			<div class="progress"></div>
 		</div>
 	</div>
-	<script src="jspm_packages/system.js"></script>
+	<!--script src="jspm_packages/system.js"></script>
 	<script src="jspm.config.js"></script>
 	<script>
 		var body = document.querySelector("body");
@@ -266,13 +268,13 @@
 		window.addEventListener("load", function(e){
 
 			window.setTimeout(function(){
-				//body.classList.add("__loaded");
-			}, 1000);
+				body.classList.add("__loaded");
+			}, 500);
 
 		}, false);
 
 		System.import("assets/js/app/home");
-	</script>
-	<!--script src="build/js/home.bundle.min.js"></script-->
+	</script-->
+	<script src="build/js/home.bundle.min.js"></script>
 </body>
 </html>

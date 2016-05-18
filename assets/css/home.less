@@ -42,7 +42,7 @@
     #toggle-menu{
         opacity: 0;
         visibility: hidden;
-        transition: all .5s @easing 0s;
+        transition: opacity .75s @easing 0s;
     }
 }
 /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
@@ -434,7 +434,7 @@
         h1{ padding: 40px 80px 0; }
         p{ padding: 0 80px 0 60px; }
     }
-    .arrow-down-holder{
+    .scroll-down-holder{
         display: none;
         width: 48px;
         height: 48px;
@@ -588,9 +588,10 @@
     
     #content{ overflow: visible; }
 
+
     .part-holder{
         position: relative;
-        z-index: 0;
+        background: transparent;
         overflow: hidden;
         &.center,
         &.top-left,
@@ -609,108 +610,169 @@
             top: 0;
             left: 0;
         }
-        .photo-holder{ overflow: hidden; }
+        .photo-holder{
+            overflow: hidden;
+            &:after{ opacity: .25; }
+        }
         .right-content-holder{ z-index: 10; }
         .info-holder{
             top: auto;
             left: 0;
+            opacity: 1;
             bottom: 80px;
+            padding: 0 80px;
             transform: translateY(0%);
-            .upper-title{ padding: 0 0 20px 40px; }
+            box-sizing: border-box;
+            visibility: visible;
+            .upper-title{ padding: 0 20px 20px; }
             .underline{ margin-left: 0px; }
-            h2{ padding: 40px 0 0 40px;  }
-            p{ padding: 20px 40px 0 40px; }
-            .btn{ margin: 80px 0 0 40px; }
+            h2{ padding: 40px 40px 0;  }
+            p{ padding: 10px 20px 0; }
+            a{ margin: 80px 80px 0 0; }
         }
-        .initials-letter,
         .background-date-holder,
-        .background-circle-holder,
-        .circle-dashed,
-        .close{
+        .initials-letter{
             display: none;
         }
         &.right-side{
             .info-holder{
-                .upper-title{ padding: 0 40px 20px 0; }
+                .upper-title{ padding: 0 20px 20px; }
                 .underline{ margin: 0; }
-                h2{ padding: 40px 40px 0 40px; }
-                p{ padding: 20px 40px 0; }
-                .btn{ margin: 80px 40px 0 0; }
+                h2{ padding: 40px 40px 0; }
+                p{ padding: 10px 20px 0; }
             }
         }
     }
 
     .part-holder.center{
-        .photo-holder{ display: none; }
-        .background-circle-holder{
-            display: block;
-            width: 80%;
-            padding-top: 80%;
+        .participants-photo-holder{ display: none; }
+        .bg-circle-holder-inside{
+            width: 62.5%;
+            padding-top: 62.5%;
         }
         .info-holder{
             top: 50%;
             bottom: auto;
             transform: translateY(-50%);
-            p{ padding: 0 40px; }
+            padding: 0 80px;
+            .upper-title,
+            .upper-title{ padding: 0 0 20px 40px; }
+            .underline{
+                width: 80px;
+                margin: 0;
+            }
+            h1{ padding: 40px 60px 0; }
+            p{ padding: 0 0 0 40px; }
+            a{ margin: 80px 80px 0 0; }
         }
-        .arrow-down-holder{ display: block; }
-    }
-    
-    .part-holder.top-middle{
-        position: absolute;
-        z-index: 20;
-        transform: translateY(-100%);
-        &.active{ transform: translateY(0%); }
-        .close{
-            display: block;
-        }
+        .scroll-down-holder{ display: block; }
     }
 
 }
 
-@media only screen and @mobile{
-
+@media only screen and @mobileL{
+    
     .part-holder{
         .info-holder{
-            bottom: 40px;
-            .upper-title{ display: none; }
-            .underline{ display: none; }
-            h2{ padding: 0 20px 0;  }
-            p{ padding: 20px 20px 0; }
-            .btn{ margin: 40px 0 0 20px; }
+            padding: 0 40px;
+            a{ margin: 40px 80px 0 0; }
         }
         &.right-side{
             .info-holder{
-                h2{ padding: 0 20px 0; }
-                p{ padding: 20px 20px 0; }
-                .btn{ margin: 40px 20px 0 0; }
+                a{ margin: 40px 80px 0 0; }
             }
         }
     }
 
     .part-holder.center{
         .info-holder{
-            .upper-title,
-            .underline{
-                display: none;
-            }
-            h1{
-                margin-top: 40px;
-                padding: 0 40px;
-            }
-            p{ padding: 0 20px; }
-            .btn{ margin: 40px auto 0; }
-            .social-holder{ width: 100%; }
+            padding: 0 40px;
+            a{ margin: 40px 80px 0 0; }
         }
-        .arrow-down-holder{
-            display: none;
+        .scroll-down-holder{
+            bottom: 40px;
+            .icon{
+                font-size: 1.25em;
+            }
         }
     }
 
-    .part-holder.top-middle{
-        .close{
-            top: 40px;
-            right: 40px;
+}
+
+@media only screen and @mobileM{
+
+    .part-holder{
+        .info-holder{
+            bottom: 40px;
+            .upper-title{ font-size: .875em; }
+            h2{ padding: 40px 40px 0; }
+            p{ padding: 10px 0 0 20px; }
+            a{ margin: 40px 20px 0 0; }
+        }
+        &.right-side{
+            .info-holder{
+                .upper-title{ padding: 0 20px 20px; }
+                .underline{ margin: 0; }
+                h2{ padding: 40px 40px 0; }
+                p{ padding: 10px 20px 0 0; }
+                a{ margin: 40px 40px 0 0; }
+            }
+        }
+    }
+
+    .part-holder.center{
+        .info-holder{
+            padding: 0 40px;
+            .upper-title{ padding: 0 40px 20px; }
+            .underline{
+                width: 80px;
+                margin: 0;
+            }
+            h1{ padding: 40px 40px 0; }
+            p{ padding: 0 0 0 20px; }
+            a{ margin: 40px 20px 0; }
+        }
+    }
+
+}
+
+@media only screen and @mobileS{
+
+    .part-holder{
+        .info-holder{
+            padding: 0 20px;
+            .upper-title{ display: none; }
+            .underline{ width: 40px; }
+            h2{ padding: 20px 20px 0; }
+            p{ padding: 10px 0 0 0; }
+            a{ margin: 40px 20px 0 0; }
+        }
+        &.right-side{
+            .info-holder{
+                .upper-title{ padding: 0 0 20px; }
+                .underline{ margin: 0; }
+                h2{ padding: 20px 20px 0; }
+                p{ padding: 10px 0 0 0; }
+                a{ margin: 40px 20px 0 0; }
+            }
+        }
+    }
+
+    .part-holder.center{
+        .info-holder{
+            padding: 0 20px;
+            .upper-title{ padding: 0 0 20px; }
+            .underline{
+                width: 40px;
+                margin-top: 40px;
+            }
+            h1{ padding: 20px 20px 0; }
+            p{ padding: 5px 0 0 0; }
+            a{ margin: 40px 20px 0; }
+        }
+        .scroll-down-holder{
+            bottom: 20px;
+            .icon{ font-size: 1em; }
         }
     }
 

@@ -1,13 +1,12 @@
 "use strict";
 
 import "jquery";
-//import Loader from "../lib/loader";
+import Loader from "../lib/loader";
 import isMobile from "../lib/isMobile";
 import Menu from "../controllers/menu";
 import Switcher from "../controllers/switcher";
 
-
-//new Loader();
+new Loader();
 
 $(() => {
 
@@ -15,10 +14,6 @@ $(() => {
 
     if(!isMobile()){
         new Switcher();
-    }
-    
-    if(isMobile()){
-        new MobileMenu();
     }
 
 });
