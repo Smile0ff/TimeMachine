@@ -27,6 +27,8 @@
   "jspm": {
     "configFile": "jspm.config.js",
     "dependencies": {
+      "handlebars": "github:components/handlebars.js@^4.0.5",
+      "hbs": "github:davis/plugin-hbs@^1.2.1",
       "jquery": "npm:jquery@^2.2.1"
     },
     "devDependencies": {

@@ -17,7 +17,12 @@ System.config({
     "babel": "npm:babel-core@5.8.35",
     "babel-runtime": "npm:babel-runtime@5.8.35",
     "core-js": "npm:core-js@1.2.6",
+    "handlebars": "github:components/handlebars.js@4.0.5",
+    "hbs": "github:davis/plugin-hbs@1.2.1",
     "jquery": "npm:jquery@2.2.1",
+    "github:davis/plugin-hbs@1.2.1": {
+      "handlebars": "github:components/handlebars.js@4.0.5"
+    },
     "github:jspm/nodelibs-assert@0.1.0": {
       "assert": "npm:assert@1.3.0"
     },

@@ -250,6 +250,11 @@
         visibility: visible;
         transition: all .75s @easing 0s;
     }
+    #bg-circle-holder{
+        transition: opacity .75s @easing 0s,
+                    top .5s @easing .75s,
+                    left .5s @easing .75s;
+    }
     #close-part{ transition: all .75s @easing 1s; }
 }
 
@@ -259,7 +264,8 @@
         transition: all .75s @easing 0s;
     }
     #bg-circle-holder{
-        animation: circleTL .5s @easing .75s 1 forwards;
+        top: 100%;
+        left: 100%;
     }
 }
 #page.tr{
@@ -268,7 +274,8 @@
         transition: all .75s @easing 0s;
     }
     #bg-circle-holder{
-        animation: circleTR .5s @easing .75s 1 forwards;
+        top: 100%;
+        left: 0%;
     }
 }
 #page.bl{
@@ -277,7 +284,8 @@
         transition: all .75s @easing 0s;
     }
     #bg-circle-holder{
-        animation: circleBL .5s @easing .75s 1 forwards;
+        top: 0%;
+        left: 100%;
     }
 }
 #page.br{
@@ -286,46 +294,6 @@
         transition: all .75s @easing 0s;
     }
     #bg-circle-holder{
-        animation: circleBR .5s @easing .75s 1 forwards;
-    }
-}
-
-@keyframes circleTL{
-    0% {
-        top: 50%;
-        left: 50%;
-    }
-    100% {
-        top: 100%;
-        left: 100%;
-    }
-}
-@keyframes circleTR{
-    0% {
-        top: 50%;
-        left: 50%;
-    }
-    100% {
-        top: 100%;
-        left: 0%;
-    }
-}
-@keyframes circleBL{
-    0% {
-        top: 50%;
-        left: 50%;
-    }
-    100% {
-        top: 0%;
-        left: 100%;
-    }
-}
-@keyframes circleBR{
-    0% {
-        top: 50%;
-        left: 50%;
-    }
-    100% {
         top: 0%;
         left: 0%;
     }
