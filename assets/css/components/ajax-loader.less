@@ -36,22 +36,21 @@
             transform: rotate(-90deg) translateX(18px);
         }
     }
-}
-
-.__loading #ajax-loader{
-    display: block;
-    .circle{
-        &:nth-child(1){
-            animation: loading 1.25s @easing 0s infinite;
-        }
-        &:nth-child(2){
-            animation: loading 1.25s @easing .1s infinite;
-        }
-        &:nth-child(3){
-            animation: loading 1.25s @easing .2s infinite;
-        }
-        &:nth-child(4){
-            animation: loading 1.25s @easing .3s infinite;
+    &.loading{
+        display: block;
+        .circle{
+            &:nth-child(1){
+                animation: loading 1.25s @easing 0s infinite;
+            }
+            &:nth-child(2){
+                animation: loading 1.25s @easing .1s infinite;
+            }
+            &:nth-child(3){
+                animation: loading 1.25s @easing .2s infinite;
+            }
+            &:nth-child(4){
+                animation: loading 1.25s @easing .3s infinite;
+            }
         }
     }
 }

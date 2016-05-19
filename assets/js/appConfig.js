@@ -1,5 +1,10 @@
 "use strict";
 
 export default {
-    liftCount: 3
+    lift: {
+        perRequest: 3,
+        params: {
+            total_items_on_page: "totalCount", 
+        }
+    }
 }
