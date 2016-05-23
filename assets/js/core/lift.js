@@ -1,6 +1,6 @@
 "use strict";
 
-let loader = $("#ajax-loader");
+let page = $("#page");
 
 class Lift{
 
@@ -31,7 +31,7 @@ class Lift{
 
         if(bottomEdge < lowerY || this.isLoading) return;
         this.isLoading = true;
-        loader.addClass("loading");
+        page.addClass("__loading");
 
         data[this.options.params.total_items_on_page] = this.totalCount;
 
@@ -43,12 +43,14 @@ class Lift{
         .done((response) => {
             response = JSON.parse(response);
 
-            this.isLoading = false;
             this.isLast = response.isLast;
-            loader.removeClass("loading");
-
+            
             this.updateTotalCount();
             this.render(response);
+        })
+        .always(() => {
+            this.isLoading = false;
+            page.removeClass("__loading");
         });
 
         return false;

@@ -1,6 +1,12 @@
 /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
 /*  layout start                              */
 /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+#page,
+#content{
+    height: auto;
+    min-height: 100%;
+}
+
 #header{ position: fixed; }
 
 #bg-circle-overlay{
@@ -39,6 +45,7 @@
 
 #content{
     background: @black;
+    padding-bottom: 80px;
     .outer{
         position: relative;
         z-index: 10;
@@ -63,7 +70,13 @@ h1.entitled-holder{
         overflow: hidden;
     }
 }
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+/*  layout end                                */
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
 
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+/*  grid start                                */
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
 .grid{
     width: 100%;
     height: auto;
@@ -194,5 +207,162 @@ h1.entitled-holder{
     }
 }
 /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
-/*  layout end                                */
+/*  grid end                                  */
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+/*  adaptive start                            */
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+@media only screen and @tablet{
+    
+    #bg-circle-overlay{
+        & > .circle{
+            width: 62.5%;
+            padding-top: 62.5%;
+        }
+    }
+
+    .grid{
+        .item{
+            .photo-holder{
+                width: 100%;
+                float: none;
+                padding-left: 40px;
+            }
+            .stamp-holder{
+                z-index: 15;
+                & > span{
+                    font-size: 2.5em;
+                    padding: 0 40px;
+                    box-sizing: border-box;
+                }
+                p{ padding: 0 40px; }
+            }
+            .info-holder{
+                width: 100%;
+                float: none;
+                z-index: 15;
+                padding: 0 40px;
+                margin-top: -160px;
+                box-sizing: border-box;
+                overflow: hidden;
+                .upper-title{ padding: 0 0 20px 20px; }
+                .underline{ margin-left: -40px; }
+                h2{ padding: 40px 0 0 40px; }
+                p{ padding: 20px 0 0 20px; }
+                a{
+                    margin: 40px 40px 0 0;
+                    &:hover{
+                        .arrow{ transform: translateX(0px); }
+                    }
+                }
+            }
+            &:nth-child(even){
+                .photo-holder,
+                .info-holder{
+                    float: none;
+                }
+                .stamp-holder{ width: 100%; }
+                .info-holder{
+                    .upper-title{ padding: 0 0 20px 20px; }
+                    .underline{ margin-left: -40px; }
+                    h2{ padding: 40px 0 0 40px; }
+                    p{ padding: 20px 0 0 20px; }
+                }
+            }
+        }
+    }
+
+}
+
+@media only screen and @mobileL{
+
+    #content .outer{ padding: 160px 12.5% 0; }
+    
+    h1.entitled-holder{
+        &:before{
+            width: 40px;
+            height: 2px;
+        }
+    }
+
+    .grid{
+        margin-top: 40px;
+        .item{
+            margin-bottom: 40px;
+            .photo-holder{
+                padding-left: 20px;
+            }
+            .stamp-holder{
+                top: 20px;
+                & > span{
+                    font-size: 1.25em;
+                    padding: 0 20px;
+                    box-sizing: border-box;
+                }
+                p{
+                    padding: 0 20px;
+                    font-size: .875em;
+                }
+            }
+            .info-holder{
+                padding: 0 20px 0 0;
+                .upper-title{
+                    padding: 0 0 10px 40px;
+                    font-size: .875em;
+                }
+                .underline{
+                    width: 40px;
+                    margin-left: 0;
+                }
+                h2{
+                    padding: 20px 0 0 40px;
+                    font-size: 1em;
+                }
+                p{ padding: 10px 0 0 40px; }
+                a{ margin: 20px 0 0 0; }
+            }
+            &:nth-child(even){
+                .info-holder{
+                    .upper-title{ padding: 0 0 10px 40px; }
+                    .underline{ margin-left: 0; }
+                    h2{ padding: 20px 0 0 40px; }
+                    p{ padding: 10px 0 0 40px; }
+                }
+            }
+        }
+    }
+
+}
+
+@media only screen and @mobileS{
+    
+    #content .outer{ padding: 120px 12.5% 0; }
+
+    .grid{
+        margin-top: 40px;
+        .item{
+            margin-bottom: 40px;
+            .photo-holder{ padding-left: 0; }
+            .info-holder{
+                padding: 0;
+                margin-top: -120px;
+                .upper-title{ padding: 0 0 10px 20px; }
+                h2{ padding: 20px 0 0 20px; }
+                p{ padding: 10px 0 0 20px; }
+            }
+            &:nth-child(even){
+                .info-holder{
+                    .upper-title{ padding: 0 0 10px 20px; }
+                    .underline{ margin-left: 0; }
+                    h2{ padding: 20px 0 0 20px; }
+                    p{ padding: 10px 0 0 20px; }
+                }
+            }
+        }
+    }
+
+}
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+/*  adaptive end                              */
 /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/

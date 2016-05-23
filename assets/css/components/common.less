@@ -187,9 +187,47 @@ body, html{
             width: 20px;
         }
     }
+    &.arrow-top{
+        width: 8px;
+        height: 47px;
+        &:before{
+            width: 2px;
+            height: 40px;
+            margin: 0 3px;
+        }
+        &:after{
+            border-top: none;
+            border-left: 4px solid transparent;
+            border-right: 4px solid transparent;
+            border-bottom: 7px solid @white;
+        }
+    }
 }
 /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
 /*  arrows end                                */
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+/*  to top start                              */
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+#to-top{
+    display: block;
+    width: 8px;
+    height: 47px;
+    position: fixed;
+    left: 106px;
+    bottom: 80px;
+    z-index: 20;
+    cursor: pointer;
+    & > .arrow{ transition: all .25s @easing; }
+    &:hover{
+        .arrow{ transform: translateY(-20px); }
+    }
+}
+
+.__loading #to-top{ display: none; }
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+/*  to top end                                */
 /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
 
 /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
@@ -361,20 +399,10 @@ body, html{
         }
     }
 
-}
-
-@media only screen and @mobileL{
-
-    h1{ font-size: 3em; }
-    h2{ font-size: 2.5em; }
-    h3{ font-size: 1.125em; }
-    h4{ font-size: 1em; }
-
-    p, a, time{ font-size: .875em; }
-
-    #header{
-        & > .logo{
-            margin: 40px 0 0 40px;
+    #to-top{
+        left: 80px;
+        &:hover{
+            .arrow{ transform: translateY(0px); }
         }
     }
 
@@ -389,6 +417,42 @@ body, html{
 
     p, a, time{ font-size: .875em; }
 
+    #header{
+        & > .logo{ margin: 40px 0 0 40px; }
+    }
+
+    #to-top{
+        width: 8px;
+        height: 30px;
+        left: 40px;
+        bottom: 40px;
+        .arrow{
+            width: 8px;
+            height: 30px;
+            &:before{
+                height: 25px;
+                margin-top: 5px;
+            }
+            &:after{
+                border-top: none;
+                border-left: 4px solid transparent;
+                border-right: 4px solid transparent;
+                border-bottom: 5px solid @white; 
+            }
+        }
+    }
+
+    #footer{
+        a{
+            display: block;
+            width: 30px;
+            height: 30px;
+            margin: 25px auto;
+            overflow: hidden;
+        }
+        small{ display: none; }
+    }
+
 }
 
 @media only screen and @mobileS{
@@ -397,9 +461,12 @@ body, html{
     h2{ font-size: 1.75em; }
 
     #header{
-        & > .logo{
-            margin: 20px 0 0 20px;
-        }
+        & > .logo{ margin: 20px 0 0 20px; }
+    }
+
+    #to-top{
+        left: 20px;
+        bottom: 20px;
     }
 
 }
