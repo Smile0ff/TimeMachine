@@ -31,7 +31,7 @@
 	<link rel="icon" type="image/png" href="assets/images/favicons/96x96.png">
 	<link rel="icon" type="image/png" href="assets/images/favicons/160x160.png">
 	<link rel="icon" type="image/png" href="assets/images/favicons/192x192.png">
-	<link rel="stylesheet" href="build/css/home.bundle.min.css">
+	<link rel="stylesheet" href="build/css/blog.bundle.min.css">
 </head>
 <body>
 	<div id="page">
@@ -39,7 +39,7 @@
 			<header id="header">
 				<a href="#" class="logo"><img src="build/images/logo.png" alt="Time Machine"></a>
 			</header>
-			<div id="toggle-menu">
+			<div id="toggle-menu" class="touchable">
 				<span class="line"></span>
 				<span class="line"></span>
 				<span class="line"></span>
@@ -53,7 +53,7 @@
 					<span class="entitled">Menu</span>
 					<nav>
 						<ul>
-							<li class="active">
+							<li>
 								<a href="index.html">
 									<span class="num">01.</span>
 									<span class="title">Home</span>
@@ -71,7 +71,7 @@
 									<span class="title">Music</span>
 								</a>
 							</li>
-							<li>
+							<li class="active">
 								<a href="blog.html">
 									<span class="num">04.</span>
 									<span class="title">Blog</span>
@@ -134,116 +134,78 @@
 					</div>
 				</div>
 			</div>
-			<section class="outer part-holder center">
-				<div class="bg-circle-holder-inside"></div>
-				<ul class="participants-photo-holder">
-					<li>
-						<div class="btn btn-small switcher-cntrl" data-position="tl">
-							<a href="#"><span>Андрей Макаревич</span></a>
+			<section class="outer blog-holder">
+				<h1 class="entitled-holder">blog</h1>
+				<div class="inner grid" id="lift-holder">
+					<article class="item lift-item">
+						<div class="photo-holder">
+							<div class="photo">
+								<figure>
+									<img src="build/images/blog/1.jpg" alt="post title">
+								</figure>
+							</div>
 						</div>
-						<div class="participant-photo"></div>
-					</li>
-					<li>
-						<div class="btn btn-small switcher-cntrl" data-position="tr">
-							<a href="#"><span>Александр Кутиков</span></a>
+						<div class="stamp-holder">
+							<time class="upper-title" datetime="2016-03-22">2016</time>
+							<span class="sub-title">22 марта</span>
 						</div>
-						<div class="participant-photo"></div>
-					</li>
-					<li>
-						<div class="btn btn-small switcher-cntrl" data-position="bl">
-							<a href="#"><span>Валерий Ефремов</span></a>
-						</div>
-						<div class="participant-photo"></div>
-					</li>
-					<li>
-						<div class="btn btn-small switcher-cntrl" data-position="br">
-							<a href="#"><span>Андрей Державин</span></a>
-						</div>
-						<div class="participant-photo"></div>
-					</li>
-				</ul>
-				<div class="inner info-holder">
-					<span class="upper-title">Rock Band</span>
-					<span class="underline"></span>
-					<h1>Time Machine</h1>
-					<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eligendi vel impedit, distinctio explicabo ratione placeat maxime ipsa facilis eos accusantium corporis labore deleniti officiis.</p>
-					<a href="#">Affiche<span class="arrow"></span></a>
-				</div>
-				<div class="scroll-down-holder">
-					<span class="icon icon-arrow-down"></span>
-				</div>
-			</section>
-			<section class="outer part-holder top-left">
-				<div class="photo-holder"></div>
-				<div class="outer right-content-holder">
-					<div class="inner info-holder">
-						<span class="background-date-holder">1953</span>
-						<div class="info">
-							<span class="upper-title">Vocalist</span>
+						<div class="info-holder">
+							<span class="upper-title">147 просмотров</span>
 							<span class="underline"></span>
-							<h2>Andrey Makarevich</h2>
-							<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iure, unde tempora earum tenetur veritatis fugiat fuga, nesciunt voluptatibus consectetur consequuntur nemo necessitatibus. Dolores laborum libero eum ipsam soluta, nulla error.</p>
+							<h2>Lorem ipsum dolor sit amet, consectetur adipiscing elit</h2>
+							<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Harum eius nulla veritatis vitae, ipsa perspiciatis error ea voluptatem expedita! Perferendis quis nisi ad odit tempore error atque dolor aspernatur porro!</p>
 							<a href="#">read more<span class="arrow"></span></a>
 						</div>
-					</div>
-					<span class="initials-letter a">A</span>
-					<span class="initials-letter m">M</span>
-				</div>	
-			</section>
-			<section class="outer part-holder right-side top-right">
-				<div class="photo-holder"></div>
-				<div class="outer right-content-holder">
-					<div class="inner info-holder">
-						<span class="background-date-holder">1952</span>
-						<div class="info">
-							<span class="upper-title">Bassist</span>
+					</article>
+					<article class="item lift-item">
+						<div class="photo-holder">
+							<div class="photo">
+								<figure>
+									<img src="build/images/blog/1.jpg" alt="post title">
+								</figure>
+							</div>
+						</div>
+						<div class="stamp-holder">
+							<time class="upper-title" datetime="2016-03-22">2016</time>
+							<span class="sub-title">22 марта</span>
+						</div>
+						<div class="info-holder">
+							<span class="upper-title">147 просмотров</span>
 							<span class="underline"></span>
-							<h2>Alexander Kytikov</h2>
-							<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iure, unde tempora earum tenetur veritatis fugiat fuga, nesciunt voluptatibus consectetur consequuntur nemo necessitatibus. Dolores laborum libero eum ipsam soluta, nulla error.</p>
+							<h2>Lorem ipsum dolor sit amet, consectetur adipiscing elit</h2>
+							<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Harum eius nulla veritatis vitae, ipsa perspiciatis error ea voluptatem expedita! Perferendis quis nisi ad odit tempore error atque dolor aspernatur porro!</p>
 							<a href="#">read more<span class="arrow"></span></a>
 						</div>
-					</div>
-					<span class="initials-letter a">a</span>
-					<span class="initials-letter k">k</span>
-				</div>
-			</section>
-			<section class="outer part-holder bottom-left">
-				<div class="photo-holder"></div>
-				<div class="outer right-content-holder">
-					<div class="inner info-holder">
-						<span class="background-date-holder">1953</span>
-						<div class="info">
-							<span class="upper-title">Drummer</span>
+					</article>
+					<article class="item lift-item">
+						<div class="photo-holder">
+							<div class="photo">
+								<figure>
+									<img src="build/images/blog/1.jpg" alt="post title">
+								</figure>
+							</div>
+						</div>
+						<div class="stamp-holder">
+							<time class="upper-title" datetime="2016-03-22">2016</time>
+							<span class="sub-title">22 марта</span>
+						</div>
+						<div class="info-holder">
+							<span class="upper-title">147 просмотров</span>
 							<span class="underline"></span>
-							<h2>Valeriy Efremov</h2>
-							<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iure, unde tempora earum tenetur veritatis fugiat fuga, nesciunt voluptatibus consectetur consequuntur nemo necessitatibus. Dolores laborum libero eum ipsam soluta, nulla error.</p>
+							<h2>Lorem ipsum dolor sit amet, consectetur adipiscing elit</h2>
+							<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Harum eius nulla veritatis vitae, ipsa perspiciatis error ea voluptatem expedita! Perferendis quis nisi ad odit tempore error atque dolor aspernatur porro!</p>
 							<a href="#">read more<span class="arrow"></span></a>
 						</div>
-					</div>
-					<span class="initials-letter v">v</span>
-					<span class="initials-letter e">e</span>
+					</article>
 				</div>
 			</section>
-			<section class="outer part-holder right-side bottom-right">
-				<div class="photo-holder"></div>
-				<div class="outer right-content-holder">
-					<div class="inner info-holder">
-						<span class="background-date-holder">1953</span>
-						<div class="info">
-							<span class="upper-title">Keyboardist</span>
-							<span class="underline"></span>
-							<h2>Andrey Derjavin</h2>
-							<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iure, unde tempora earum tenetur veritatis fugiat fuga, nesciunt voluptatibus consectetur consequuntur nemo necessitatibus. Dolores laborum libero eum ipsam soluta, nulla error.</p>
-							<a href="#">read more<span class="arrow"></span></a>
-						</div>
-					</div>
-					<span class="initials-letter a">a</span>
-					<span class="initials-letter d">d</span>
-				</div>
-			</section>
-			<span id="close-part">back to band</span>
-			<div id="bg-circle-holder"></div>
+			<div id="to-top">
+				<span class="arrow arrow-top"></span>
+			</div>
 		</main>
+		<div id="bg-circle-overlay">
+			<div class="circle"></div>
+		</div>
 		<div id="landscape-cap-holder">
 			<div class="circle-holder"></div>
 			<div class="inner">
@@ -258,8 +220,18 @@
 			</div>
 			<div class="progress"></div>
 		</div>
+		<div id="ajax-loader">
+			<span class="circle"></span>
+			<span class="circle"></span>
+			<span class="circle"></span>
+			<span class="circle"></span>
+		</div>
 	</div>
-	<!--script src="jspm_packages/system.js"></script>
+	<footer id="footer">
+		<a href="#" class="logo"><img src="build/images/cheers-logo.png" alt="CHEERS - unlimited web production"></a>
+		<small>© 2016. All rights Reserved. Designed by CHEERS - Unlimited Web Production</small>
+	</footer>
+	<script src="jspm_packages/system.js"></script>
 	<script src="jspm.config.js"></script>
 	<script>
 		var body = document.querySelector("body");
@@ -272,8 +244,8 @@
 
 		}, false);
 
-		System.import("assets/js/app/home");
-	</script-->
-	<script src="build/js/home.bundle.min.js"></script>
+		System.import("assets/js/app/blog");
+	</script>
+	<!--script src="build/js/blog.bundle.min.js"></script-->
 </body>
 </html>

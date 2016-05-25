@@ -1,4 +1,4 @@
-{{#each concerts}}
+{{#each participants}}
 
     <article class="item lift-item">
         <div class="photo-holder">
@@ -9,15 +9,14 @@
             </div>
         </div>
         <div class="stamp-holder">
-            <span class="upper-title">{{ location }}</span>
-            <p class="sub-title">{{ street }}</p>
+            <span class="upper-title">{{ entryYear }}</span>
+            <p class="sub-title">{{ yearsInGroup }}</p>
         </div>
         <div class="info-holder">
-            <time class="upper-title" datetime="{{ machineDate }}">{{ humanDate }}</time>
+            <span class="upper-title">{{ role }}</span>
             <span class="underline"></span>
             <h2>{{ title }}</h2>
             <p>{{ description }}</p>
-            <a href="{{ link }}">{{ linkTitle }}<span class="arrow"></span></a>
         </div>
     </article>
 

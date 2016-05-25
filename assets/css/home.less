@@ -593,11 +593,11 @@
             transform: translateY(0%);
             box-sizing: border-box;
             visibility: visible;
-            .upper-title{ padding: 0 20px 20px; }
+            .upper-title{ padding: 0 40px 20px; }
             .underline{ margin-left: 0px; }
             h2{ padding: 40px 40px 0;  }
-            p{ padding: 10px 20px 0; }
-            a{ margin: 80px 80px 0 0; }
+            p{ padding: 10px 40px 0; }
+            a{ margin: 40px 80px 0 0; }
         }
         .background-date-holder,
         .initials-letter{
@@ -605,10 +605,11 @@
         }
         &.right-side{
             .info-holder{
-                .upper-title{ padding: 0 20px 20px; }
+                .upper-title{ padding: 0 40px 20px; }
                 .underline{ margin: 0; }
                 h2{ padding: 40px 40px 0; }
-                p{ padding: 10px 20px 0; }
+                p{ padding: 10px 40px 0; }
+                a{ margin: 40px 80px 0 0; }
             }
         }
     }
@@ -625,14 +626,17 @@
             transform: translateY(-50%);
             padding: 0 80px;
             .upper-title,
-            .upper-title{ padding: 0 0 20px 40px; }
+            .upper-title{ padding: 0 40px 20px; }
             .underline{
                 width: 80px;
                 margin: 0;
             }
-            h1{ padding: 40px 60px 0; }
-            p{ padding: 0 0 0 40px; }
-            a{ margin: 80px 80px 0 0; }
+            h1{
+                font-size: 4.75em;
+                padding: 40px 40px 0;
+            }
+            p{ padding: 10px 40px 0; }
+            a{ margin: 40px 80px 0 0; }
         }
         .scroll-down-holder{ display: block; }
     }
@@ -644,11 +648,21 @@
     .part-holder{
         .info-holder{
             padding: 0 40px;
-            a{ margin: 40px 80px 0 0; }
+            .upper-title{ padding: 0 20px 20px; }
+            .underline{ width: 40px; }
+            h2{
+                font-size: 2.5em;
+                padding: 20px 20px 0;
+            }
+            p{ padding: 10px 20px 0; }
+            a{ margin: 40px 40px 0 0; }
         }
         &.right-side{
             .info-holder{
-                a{ margin: 40px 80px 0 0; }
+                .upper-title{ padding: 0 20px 20px; }
+                h2{ padding: 20px 20px 0; }
+                p{ padding: 10px 20px 0; }
+                a{ margin: 40px 40px 0 0; }
             }
         }
     }
@@ -656,13 +670,18 @@
     .part-holder.center{
         .info-holder{
             padding: 0 40px;
+            .upper-title{ padding: 0 20px 20px; }
+            .underline{ width: 40px; }
+            h1{
+                font-size: 4.5em;
+                padding: 20px 20px 0;
+            }
+            p{ padding: 0 20px 0; }
             a{ margin: 40px 80px 0 0; }
         }
         .scroll-down-holder{
             bottom: 40px;
-            .icon{
-                font-size: 1.25em;
-            }
+            .icon{ font-size: 1.25em; }
         }
     }
 
@@ -673,17 +692,22 @@
     .part-holder{
         .info-holder{
             bottom: 40px;
-            .upper-title{ font-size: .875em; }
-            h2{ padding: 40px 40px 0; }
-            p{ padding: 10px 0 0 20px; }
-            a{ margin: 40px 20px 0 0; }
+            .upper-title{
+                font-size: .875em;
+                padding: 0 0 20px;
+            }
+            h2{
+                font-size: 2em;
+                padding: 20px 0 0;
+            }
+            p{ padding: 5px 0 0; }
+            a{ margin: 40px 40px 0 0; }
         }
         &.right-side{
             .info-holder{
-                .upper-title{ padding: 0 20px 20px; }
-                .underline{ margin: 0; }
-                h2{ padding: 40px 40px 0; }
-                p{ padding: 10px 20px 0 0; }
+                .upper-title{ padding: 0 0 20px; }
+                h2{ padding: 20px 0 0; }
+                p{ padding: 10px 0 0; }
                 a{ margin: 40px 40px 0 0; }
             }
         }
@@ -692,14 +716,13 @@
     .part-holder.center{
         .info-holder{
             padding: 0 40px;
-            .upper-title{ padding: 0 40px 20px; }
-            .underline{
-                width: 80px;
-                margin: 0;
+            .upper-title{ padding: 0 0 20px; }
+            h1{
+                font-size: 3em;
+                padding: 20px 0 0;
             }
-            h1{ padding: 40px 40px 0; }
-            p{ padding: 0 0 0 20px; }
-            a{ margin: 40px 20px 0; }
+            p{ padding: 0; }
+            a{ margin: 40px 40px 0; }
         }
     }
 
@@ -712,16 +735,16 @@
             padding: 0 20px;
             .upper-title{ display: none; }
             .underline{ width: 40px; }
-            h2{ padding: 20px 20px 0; }
-            p{ padding: 10px 0 0 0; }
+            h2{ padding: 20px 0 0; }
+            p{ padding: 0; }
             a{ margin: 40px 20px 0 0; }
         }
         &.right-side{
             .info-holder{
                 .upper-title{ padding: 0 0 20px; }
                 .underline{ margin: 0; }
-                h2{ padding: 20px 20px 0; }
-                p{ padding: 10px 0 0 0; }
+                h2{ padding: 20px 0 0; }
+                p{ padding: 5px 0 0 0; }
                 a{ margin: 40px 20px 0 0; }
             }
         }
@@ -730,13 +753,11 @@
     .part-holder.center{
         .info-holder{
             padding: 0 20px;
-            .upper-title{ padding: 0 0 20px; }
-            .underline{
-                width: 40px;
-                margin-top: 40px;
+            h1{
+                font-size: 2.75em;
+                padding: 20px 0 0;
             }
-            h1{ padding: 20px 20px 0; }
-            p{ padding: 5px 0 0 0; }
+            p{ padding: 5px 0 0; }
             a{ margin: 40px 20px 0; }
         }
         .scroll-down-holder{

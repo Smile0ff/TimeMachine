@@ -13,6 +13,7 @@ class Menu{
     }
     _events(){
         toggleMenu.on("click", (e) => { this.handleToggleMenu(e) });
+        $(document).on("touchmove", (e) => {this.preventScroll(e) });
     }
     handleToggleMenu(e){
         isActive = !isActive;
@@ -22,6 +23,12 @@ class Menu{
         menuSubstrate.toggleClass("active");
         
         return false;
+    }
+    preventScroll(e){
+        if(isActive){
+            e.preventDefault();
+            return false;
+        }
     }
 }
 

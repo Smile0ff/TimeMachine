@@ -1,0 +1,525 @@
+@import "components/common.less";
+@import "components/menu.less";
+@import "components/loader.less";
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+/*  layout start                              */
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+#page,
+#content{
+    height: auto;
+    min-height: 100%;
+}
+
+#content{
+    background: @black;
+    padding-bottom: 80px;
+    .outer{
+        position: relative;
+        z-index: 10;
+        padding-top: 240px;
+        box-sizing: border-box;
+    }
+}
+
+#bg-circle-overlay{
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 0;
+    background: @black;
+    overflow: hidden;
+    & > .circle{
+        width: 33.33333333333333%;
+        height: 0;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        padding-top: 33.33333333333333%;
+        transform: translateX(-50%) translateY(-50%);
+        overflow: hidden;
+        &:before{
+            display: block;
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            top: 0;
+            left: 0;
+            content: "";
+            border-radius: 50%;
+            border: 60px solid @grey;
+            box-sizing: border-box;
+            overflow: hidden;
+        }
+    }
+}
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+/*  layout end                                */
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+/*  post start                                */
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+.post-holder{
+    .post{
+        margin-bottom: 80px;
+        .entitled-holder,
+        .info-holder{
+            width: 100%;
+            height: auto;
+            padding: 0 12.5%;
+            box-sizing: border-box;
+        }
+        .entitled-holder{
+            h1{
+                position: relative;
+                font-family: @djsc;
+                font-size: 1em;
+                color: @white;
+                text-transform: uppercase;
+                padding-left: 100px;
+                box-sizing: border-box;
+                &:before{
+                    display: block;
+                    width: 80px;
+                    height: 2px;
+                    position: absolute;
+                    top: 50%;
+                    left: 0;
+                    content: "";
+                    background: @white;
+                    transform: translateY(-50%);
+                    overflow: hidden;
+                }
+            }
+        }
+        .info-holder{
+            margin-top: 80px;
+            overflow: hidden;
+            .photo-holder,
+            .video-holder,
+            .info{
+                width: 50%;
+                height: auto;
+                float: left;
+            }
+            .photo-holder{
+                padding-left: 80px;
+                box-sizing: border-box;
+                .photo{
+                    width: 100%;
+                    height: 0;
+                    padding-top: 100%;
+                    position: relative;
+                    overflow: hidden;
+                    &:before{
+                        display: block;
+                        width: 100%;
+                        height: 100%;
+                        position: absolute;
+                        top: 0;
+                        left: 0;
+                        z-index: 10;
+                        content: "";
+                        background: fade(@black, 60%);
+                    }
+                    figure{
+                        width: 100%;
+                        height: 100%;
+                        position: absolute;
+                        top: 0;
+                        left: 0;
+                    }
+                }
+            }
+            .video-holder{
+                padding-left: 80px;
+                box-sizing: border-box;
+                .video{
+                    width: 100%;
+                    height: 0;
+                    position: relative;
+                    padding-top: 56.25%;
+                    iframe{
+                        display: block;
+                        width: 100%;
+                        height: 100%;
+                        position: absolute;
+                        top: 0;
+                        left: 0;
+                    }
+                }
+            }
+            .info{
+                position: relative;
+                z-index: 10;
+                .stamp-holder{
+                    margin-top: 40px;
+                    .upper-title{
+                        display: block;
+                        width: 100%;
+                        font-family: @djsc;
+                        font-size: 4.5em;
+                        text-align: right;
+                        color: @grey;
+                        padding-right: 40px;
+                        box-sizing: border-box;
+                    }
+                    .sub-title{
+                        display: block;
+                        color: @white;
+                        text-align: right;
+                        padding-right: 40px;
+                        box-sizing: border-box;
+                    }
+                }
+                .upper-title{
+                    display: block;
+                    font-family: @djsl;
+                    text-align: left;
+                    color: @white;
+                    padding: 0 20px 20px;
+                    box-sizing: border-box;
+                }
+                .underline{
+                    margin: 0 0 40px -40px;
+                }
+                p{
+                    color: @white;
+                    text-align: left;
+                    padding: 0 40px 20px;
+                    &:first-child{ margin-top: 40px; }
+                }
+            }
+            &.reversed{
+                .photo-holder,
+                .video-holder,
+                .info{ float: right; }
+                p{ padding: 0 0 20px 80px; }
+            }
+            &.text-only{
+                .info{
+                    width: 100%;
+                    float: none;
+                    padding-left: 60px;
+                    box-sizing: border-box;
+                }
+            }
+        }
+    }
+    .quote-holder{
+        width: 100%;
+        height: auto;
+        margin-top: 80px;
+        background: @grey;
+        position: relative;
+        p{
+            font-family: @djsc;
+            text-align: center;
+            color: @white;
+            padding: 80px 26.5625%;
+        }
+        .quote{
+            display: block;
+            width: 80px;
+            height: auto;
+            position: absolute;
+            z-index: 10;
+            font-family: @djsc;
+            font-size: 4.5em;
+            color: @white;
+            text-align: center;
+            &.top{
+                top: -24px;
+                left: 12.5%;
+            }
+            &.bottom{
+                right: 12.5%;
+                bottom: -60px;
+            }
+        }
+    }
+    .nav-holder{
+        width: 100%;
+        height: auto;
+        margin-bottom: 40px;
+        overflow: hidden;
+        .btn{
+            width: 140px;
+            &.left{
+                float: left;
+                margin-left: 80px;
+            }
+            &.right{
+                float: right;
+                margin-right: 80px;
+            }
+        }        
+    }
+}
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+/*  post end                                  */
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+/*  social like start                         */
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+#social-like-holder{
+    width: 160px;
+    height: auto;
+    position: fixed;
+    top: 50%;
+    left: 0;
+    z-index: 20;
+    transform: translateY(-50%);
+    ul, li, .social-likes__button{
+        display: block;
+        width: 100%;
+        height: auto;
+        overflow: hidden;
+    }
+    li{
+        .social-likes__button{
+            color: @white;
+            margin-bottom: 20px;
+            font-size: .875em;
+            padding-left: 20px;
+            box-sizing: border-box;
+            cursor: pointer;
+            position: relative;
+            transition: all .5s @easing 0s;
+            transform: translateX(0px);
+            overflow: visible;
+            &:last-child{ margin-bottom: 0; }
+            &:before{
+                display: inline-block;
+                vertical-align: middle;
+                width: 40px;
+                height: 2px;
+                content: "";
+                margin-left: -40px;
+                margin-right: 20px;
+                background: @white;
+            }
+            &:hover{ transform: translateX(20px); }
+            .social-likes__counter{ display: none; }
+        }
+    }
+}
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+/*  social like end                           */
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+/*  adaptive start                            */
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+@media only screen and @tablet{
+    
+    #bg-circle-overlay{
+        & > .circle{
+            width: 62.5%;
+            padding-top: 62.5%;
+        }
+    }
+
+    #content{
+        .outer{
+            padding-top: 200px;
+        }
+    }
+
+    .post-holder{
+        .post{
+            margin-bottom: 40px;
+            .entitled-holder,
+            .info-holder{ padding: 0 0 0 16.66666666666667%; }
+            .info-holder{
+                position: relative;
+                margin-top: 80px;
+                .photo-holder,
+                .video-holder,
+                .info{
+                    width: 100%;
+                    float: none;
+                }
+                .photo-holder{
+                    position: relative;
+                    padding-left: 40px;
+                }
+                .video-holder{
+                    padding-left: 40px;
+                    box-sizing: border-box;
+                    & + .info{ margin-top: 40px; }
+                }
+                .info{
+                    margin-top: -480px;
+                    padding-left: 40px;
+                    box-sizing: border-box;
+                    .stamp-holder{
+                        margin-top: 0;
+                        .upper-title{
+                            font-size: 2.5em;
+                            padding: 40px 40px 0;
+                        }
+                        .sub-title{ padding: 0 40px; }
+                    }
+                    .upper-title{ padding: 40px 40px 20px; }
+                    .underline{ margin: 0 0 40px -40px; }
+                    p{
+                        padding: 0 40px 20px;
+                        &:first-child{ margin-top: 0px; }
+                    }
+                }
+                &.reversed{
+                    .photo-holder,
+                    .video-holder,
+                    .info{ float: none; }
+                    p{ padding: 0 40px 20px; }
+                }
+                &.text-only{
+                    margin-top: 40px;
+                    .info{
+                        margin-top: 0;
+                        padding-left: 40px;
+                    }
+                }
+            }
+        }
+        .quote-holder{
+            p{
+                padding: 40px 40px 40px 27.08333333333333%;
+            }
+            .quote{
+                &.top{
+                    top: -24px;
+                    left: 20.83333333333333%;
+                }
+                &.bottom{
+                    right: 0;
+                    bottom: -60px;
+                }
+            }
+        }
+    }
+
+    #social-like-holder{
+        li{
+            .social-likes__button{
+                &:hover{ transform: translateX(0); }
+            }
+        }
+    }
+
+}
+
+@media only screen and @mobileL{
+
+    #content .outer{ padding-top: 160px; }
+
+    .post-holder{
+        .post{
+            margin-bottom: 40px;
+            .entitled-holder{
+                h1{
+                    padding-left: 60px;
+                    &:before{ width: 40px; }
+                }
+            }
+            .info-holder{
+                margin-top: 40px;
+                .photo-holder{ padding-left: 20px; }
+                .video-holder{
+                    padding-left: 20px;
+                }
+                .info{
+                    margin-top: -320px;
+                    padding-left: 20px;
+                    .stamp-holder{
+                        .upper-title{ padding: 20px 20px 0; }
+                        .sub-title{ padding: 0 20px; }
+                    }
+                    .upper-title{ padding: 40px 20px 20px; }
+                    .underline{
+                        width: 40px;
+                        margin: 0 0 20px -20px;
+                    }
+                    p{ padding: 0 20px 20px; }
+                }
+                &.reversed{
+                    p{ padding: 0 20px 20px; }
+                }
+                &.text-only{
+                    margin-top: 40px;
+                    .info{
+                        margin-top: 0;
+                        padding-left: 20px;
+                    }
+                }
+            }
+        }
+        .quote-holder{ margin-top: 40px; }
+    }
+
+}
+
+@media only screen and @mobileM{
+
+    #content .outer{ padding-top: 120px; }
+
+    .post-holder{
+        .post{
+            .info-holder{
+                .info{ margin-top: -240px; }
+            }
+        }
+        .nav-holder{
+            .btn{
+                &.left{ margin-left: 0px; }
+                &.right{ margin-right: 0px; }
+            }        
+        }
+    }
+
+    #social-like-holder{
+        width: 120px;
+        li{
+            .social-likes__button{
+                padding-left: 0;
+                &:before{
+                    width: 20px;
+                    margin: 0 10px 0 0;
+                }
+            }
+        }
+    }
+
+}
+
+@media only screen and @mobileS{
+    
+    #content .outer{ padding-top: 80px; }
+
+    .post-holder{
+        .post{
+            .info-holder{
+                .info{ margin-top: -160px; }
+            }
+        }
+    }
+
+    #social-like-holder{
+        width: 110px;
+        li{
+            .social-likes__button{
+                &:before{
+                    width: 10px;
+                }
+            }
+        }
+    }
+
+}
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+/*  adaptive end                              */
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/

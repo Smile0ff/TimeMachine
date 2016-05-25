@@ -7,8 +7,6 @@
     min-height: 100%;
 }
 
-#header{ position: fixed; }
-
 #bg-circle-overlay{
     width: 100%;
     height: 100%;
@@ -128,7 +126,7 @@ h1.entitled-holder{
             top: 40px;
             left: 0;
             overflow: hidden;
-            & > span{
+            & > .upper-title{
                 display: block;
                 width: 100%;
                 font-family: @djsc;
@@ -137,7 +135,8 @@ h1.entitled-holder{
                 color: @grey;
                 text-transform: uppercase;
             }
-            p{
+            & > .sub-title{
+                display: block;
                 font-size: 1em;
                 text-align: right;
                 color: @white;
@@ -222,6 +221,8 @@ h1.entitled-holder{
         }
     }
 
+    #content .outer{ padding: 200px 0 0 16.66666666666667%; }
+
     .grid{
         .item{
             .photo-holder{
@@ -231,27 +232,29 @@ h1.entitled-holder{
             }
             .stamp-holder{
                 z-index: 15;
-                & > span{
+                padding-left: 40px;
+                box-sizing: border-box;
+                & > .upper-title{
                     font-size: 2.5em;
                     padding: 0 40px;
                     box-sizing: border-box;
                 }
-                p{ padding: 0 40px; }
+                & > .sub-title{ padding: 0 40px; }
             }
             .info-holder{
                 width: 100%;
                 float: none;
                 z-index: 15;
-                padding: 0 40px;
+                padding: 0 0 0 20px;
                 margin-top: -160px;
                 box-sizing: border-box;
                 overflow: hidden;
-                .upper-title{ padding: 0 0 20px 20px; }
-                .underline{ margin-left: -40px; }
-                h2{ padding: 40px 0 0 40px; }
-                p{ padding: 20px 0 0 20px; }
+                .upper-title{ padding: 0 40px 20px; }
+                .underline{ margin-left: -20px; }
+                h2{ padding: 40px 40px 0; }
+                p{ padding: 20px 40px 0; }
                 a{
-                    margin: 40px 40px 0 0;
+                    margin: 40px 80px 0 0;
                     &:hover{
                         .arrow{ transform: translateX(0px); }
                     }
@@ -264,10 +267,10 @@ h1.entitled-holder{
                 }
                 .stamp-holder{ width: 100%; }
                 .info-holder{
-                    .upper-title{ padding: 0 0 20px 20px; }
-                    .underline{ margin-left: -40px; }
-                    h2{ padding: 40px 0 0 40px; }
-                    p{ padding: 20px 0 0 20px; }
+                    .upper-title{ padding: 0 40px 20px; }
+                    .underline{ margin-left: -20px; }
+                    h2{ padding: 40px 40px 0; }
+                    p{ padding: 20px 40px 0; }
                 }
             }
         }
@@ -277,7 +280,7 @@ h1.entitled-holder{
 
 @media only screen and @mobileL{
 
-    #content .outer{ padding: 160px 12.5% 0; }
+    #content .outer{ padding: 160px 0 0 16.66666666666667%; }
     
     h1.entitled-holder{
         &:before{
@@ -295,20 +298,19 @@ h1.entitled-holder{
             }
             .stamp-holder{
                 top: 20px;
-                & > span{
-                    font-size: 1.25em;
+                & > .upper-title{
                     padding: 0 20px;
-                    box-sizing: border-box;
                 }
-                p{
+                & > .sub-title{
                     padding: 0 20px;
                     font-size: .875em;
                 }
             }
             .info-holder{
-                padding: 0 20px 0 0;
+                padding: 0;
+                margin-top: -100px;
                 .upper-title{
-                    padding: 0 0 10px 40px;
+                    padding: 0 40px 10px;
                     font-size: .875em;
                 }
                 .underline{
@@ -316,18 +318,18 @@ h1.entitled-holder{
                     margin-left: 0;
                 }
                 h2{
-                    padding: 20px 0 0 40px;
+                    padding: 20px 20px 0 40px;
                     font-size: 1em;
                 }
-                p{ padding: 10px 0 0 40px; }
-                a{ margin: 20px 0 0 0; }
+                p{ padding: 10px 20px 0 40px; }
+                a{ margin: 20px 40px 0 0; }
             }
             &:nth-child(even){
                 .info-holder{
-                    .upper-title{ padding: 0 0 10px 40px; }
+                    .upper-title{ padding: 0 20px 10px 40px; }
                     .underline{ margin-left: 0; }
-                    h2{ padding: 20px 0 0 40px; }
-                    p{ padding: 10px 0 0 40px; }
+                    h2{ padding: 20px 20px 0 40px; }
+                    p{ padding: 10px 20px 0 40px; }
                 }
             }
         }
@@ -335,28 +337,48 @@ h1.entitled-holder{
 
 }
 
+@media only screen and @mobileM{
+
+    #content .outer{ padding: 120px 0 0 16.66666666666667%; }
+
+    .grid{
+        .item{
+            .stamp-holder{
+                & > .upper-title{ font-size: 2em; }
+                & > .sub-title{ font-size: .75em; }
+            }
+            .info-holder{ margin-top: -120px; }
+        }
+    }
+
+}
+
 @media only screen and @mobileS{
-    
-    #content .outer{ padding: 120px 12.5% 0; }
+
+    #content .outer{ padding: 80px 0 0 16.66666666666667%; }
 
     .grid{
         margin-top: 40px;
         .item{
             margin-bottom: 40px;
             .photo-holder{ padding-left: 0; }
+            .stamp-holder{
+                padding: 0;
+                & > .upper-title{ font-size: 1.5em; }
+            }
             .info-holder{
                 padding: 0;
-                margin-top: -120px;
-                .upper-title{ padding: 0 0 10px 20px; }
-                h2{ padding: 20px 0 0 20px; }
-                p{ padding: 10px 0 0 20px; }
+                margin-top: -160px;
+                .upper-title{ padding: 0 10px 10px 20px; }
+                h2{ padding: 20px 10px 0 20px; }
+                p{ padding: 10px 10px 0 20px; }
             }
             &:nth-child(even){
                 .info-holder{
-                    .upper-title{ padding: 0 0 10px 20px; }
+                    .upper-title{ padding: 0 10px 10px 20px; }
                     .underline{ margin-left: 0; }
-                    h2{ padding: 20px 0 0 20px; }
-                    p{ padding: 10px 0 0 20px; }
+                    h2{ padding: 20px 10px 0 20px; }
+                    p{ padding: 10px 10px 0 20px; }
                 }
             }
         }

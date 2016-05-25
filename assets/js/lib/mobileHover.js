@@ -14,10 +14,10 @@ class MobileHover{
             .on("touchend", ".touchable", (e) => { this._touchEnd(e) });
     }
     _touchStart(e){
-        $(e.target).closest(".touchable").removeClass("touch-end").addClass("touch-start");
+        $(e.currentTarget).removeClass("touch-end").addClass("touch-start");
     }
     _touchEnd(e){
-        $(e.target).closest(".touchable").removeClass("touch-start").addClass("touch-end");
+        $(e.currentTarget).removeClass("touch-start").addClass("touch-end");
     }
 }
 
