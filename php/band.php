@@ -4,7 +4,7 @@
     $response = [
         "current"   => $_GET["totalCount"],
         "isLast"    => false,
-        "participants"  => [
+        "data"  => [
             [
                 "photo"         => "build/images/band/1.jpg",
                 "photoTitle"    => "participant name",

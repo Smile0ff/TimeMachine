@@ -1,6 +1,5 @@
 "use strict";
 
-import config from "../appConfig";
 import Lift from "../core/lift";
 import afficheItem from "../templates/afficheItem.hbs!";
 
@@ -11,13 +10,16 @@ class AfficheLift extends Lift{
     constructor(){
         super(el, {
             url: "/php/affiche.php",
-            perRequest: config.lift.perRequest,
-            params: config.lift.params
+            perRequest: 3
         });
+
+        this.render();
     }
-    render(data){
-        let html = afficheItem(data);
-        el.append(html);
+    render(){
+        this.listenTo("data:loaded", (data) => {
+            let html = afficheItem({ concerts: data });
+            el.append(html);
+        });
     }
 
 }

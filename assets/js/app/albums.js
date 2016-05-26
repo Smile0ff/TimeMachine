@@ -6,7 +6,7 @@ import Loader from "../lib/loader";
 import isMobile from "../lib/isMobile";
 import ScrollTop from "../lib/scrollTop";
 import Menu from "../controllers/menu";
-import BandLift from "../controllers/bandLift";
+import AlbumsLift from "../controllers/albumsLift";
 
 new Loader();
 
@@ -15,7 +15,7 @@ $(() => {
     new ScrollTop();
 
     new Menu();
-    new BandLift();
+    new AlbumsLift();
 
     setTimeout(() => {
         window.scrollTo(0, 0);

@@ -1,15 +1,15 @@
 "use strict";
 
 import Lift from "../core/lift";
-import blogItem from "../templates/blogItem.hbs!";
+import albumItem from "../templates/albumItem.hbs!";
 
 let el = $("#lift-holder");
 
-class BlogLift extends Lift{
+class AlbumsLift extends Lift{
 
     constructor(){
         super(el, {
-            url: "/php/blog.php",
+            url: "/php/albums.php",
             perRequest: 3
         });
 
@@ -17,11 +17,11 @@ class BlogLift extends Lift{
     }
     render(){
         this.listenTo("data:loaded", (data) => {
-            let html = blogItem({ posts: data });
+            let html = albumItem({ albums: data });
             el.append(html);
         });
     }
 
 }
 
-export default BlogLift;
+export default AlbumsLift;

@@ -4,7 +4,7 @@
     $response = [
         "current"   => $_GET["totalCount"],
         "isLast"    => false,
-        "posts"  => [
+        "data"  => [
             [
                 "photo"         => "build/images/blog/1.jpg",
                 "photoTitle"    => "some short title",
@@ -15,7 +15,7 @@
                 "description"   => "Lorem ipsum dolor sit amet, consectetur adipisicing elit.
                                     Harum eius nulla veritatis vitae,psaperspiciatis error ea voluptatem expedita!
                                     Perferendis quis nisi ad odit tempore error atque dolor aspernatur porro!",
-                "link"          => "#",
+                "link"          => "post.html",
                 "linkTitle"     => "read more"
             ],
             [
@@ -28,7 +28,7 @@
                 "description"   => "Lorem ipsum dolor sit amet, consectetur adipisicing elit.
                                     Harum eius nulla veritatis vitae,psaperspiciatis error ea voluptatem expedita!
                                     Perferendis quis nisi ad odit tempore error atque dolor aspernatur porro!",
-                "link"          => "#",
+                "link"          => "post.html",
                 "linkTitle"     => "read more"
             ],
             [
@@ -41,7 +41,7 @@
                 "description"   => "Lorem ipsum dolor sit amet, consectetur adipisicing elit.
                                     Harum eius nulla veritatis vitae,psaperspiciatis error ea voluptatem expedita!
                                     Perferendis quis nisi ad odit tempore error atque dolor aspernatur porro!",
-                "link"          => "#",
+                "link"          => "post.html",
                 "linkTitle"     => "read more"
             ]
         ]

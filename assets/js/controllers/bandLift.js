@@ -1,6 +1,5 @@
 "use strict";
 
-import config from "../appConfig";
 import Lift from "../core/lift";
 import bandItem from "../templates/bandItem.hbs!";
 
@@ -11,13 +10,16 @@ class BandLift extends Lift{
     constructor(){
         super(el, {
             url: "/php/band.php",
-            perRequest: config.lift.perRequest,
-            params: config.lift.params
+            perRequest: 3
         });
+
+        this.render();
     }
-    render(data){
-        let html = bandItem(data);
-        el.append(html);
+    render(){
+        this.listenTo("data:loaded", (data) => {
+            let html = bandItem({ participants: data });
+            el.append(html);
+        });
     }
 
 }

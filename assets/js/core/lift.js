@@ -6,7 +6,9 @@ class Lift{
 
     constructor(el, options = {}){
         this.el = el;
+        this.data = [];
         this.options = options;
+        this.eventName = "";
 
         this.dimension = {};
         this.isLoading = false;
@@ -21,32 +23,37 @@ class Lift{
         $(window).on("scroll", (e) => { this._handleScroll(e) })
                  .on("resize", (e) => { this._handleResize(e) });
     }
+    listenTo(eventName, handler){
+        this.eventName = eventName;
+
+        $(document).on(this.eventName, (e) => {
+            return handler.call(this, this.data);
+        });
+    }
     _handleScroll(e){
         if(this.isLast) return;
 
         let scrollY = $(window).scrollTop();
         let bottomEdge = this.getBottomEdge(scrollY);
         let lowerY = this.getLowerY();
-        let data = {};
 
         if(bottomEdge < lowerY || this.isLoading) return;
         this.isLoading = true;
         page.addClass("__loading");
 
-        data[this.options.params.total_items_on_page] = this.totalCount;
-
         $.ajax({
             url: this.options.url,
             type: "GET",
-            data: data
+            data: { totalCount: this.totalCount }
         })
         .done((response) => {
             response = JSON.parse(response);
 
+            this.data = response.data;
             this.isLast = response.isLast;
-            
+
             this.updateTotalCount();
-            this.render(response);
+            $(document).trigger(this.eventName);
         })
         .always(() => {
             this.isLoading = false;
