@@ -1,0 +1,75 @@
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+/*  ajax response start                       */
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+#ajax-response-holder{
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 100;
+    background: fade(@black, 90%);
+    transition: all .25s @easing 0s;
+    opacity: 0;
+    visibility: hidden;
+    overflow: hidden;
+    .outer{
+        position: absolute;
+        top: 50%;
+        left: 0;
+        z-index: 5;
+        padding: 0 12.5%;
+        transform: translateY(-50%);
+        box-sizing: border-box;
+    }
+    .inner{
+        width: 100%;
+        height: auto;
+        position: relative;
+        background: @grey;
+        .upper-title{
+            display: block;
+            padding: 40px 0 20px 20px;
+            font-family: @djsl;
+            color: @white;
+            text-align: left;
+        }
+        .underline{ margin-left: -40px; }
+        p{
+            text-align: left;
+            color: @white;
+            padding: 20px 40px 40px;
+        }
+        & > .close{
+            display: block;
+            width: 40px;
+            height: 40px;
+            position: absolute;
+            top: -40px;
+            right: -40px;
+            z-index: 10;
+            background: @grey;
+            cursor: pointer;
+            &:before,
+            &:after{
+                display: block;
+                width: 20px;
+                height: 2px;
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                content: "";
+                transform: translateX(-50%) translateY(-50%) rotate(45deg);
+                background: @white;
+            }
+            &:after{ transform: translateX(-50%) translateY(-50%) rotate(-45deg); }
+        }
+    }
+    &.active{
+        opacity: 1;
+        visibility: visible;
+    }
+}
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+/*  ajax response end                         */
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/

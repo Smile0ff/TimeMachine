@@ -17,6 +17,8 @@ System.config({
     "babel": "npm:babel-core@5.8.35",
     "babel-runtime": "npm:babel-runtime@5.8.35",
     "core-js": "npm:core-js@1.2.6",
+    "es6-promise": "npm:es6-promise@3.2.1",
+    "fetch": "github:github/fetch@1.0.0",
     "handlebars": "github:components/handlebars.js@4.0.5",
     "hbs": "github:davis/plugin-hbs@1.2.1",
     "jquery": "npm:jquery@2.2.4",
@@ -66,6 +68,9 @@ System.config({
       "path": "github:jspm/nodelibs-path@0.1.0",
       "process": "github:jspm/nodelibs-process@0.1.2",
       "systemjs-json": "github:systemjs/plugin-json@0.1.0"
+    },
+    "npm:es6-promise@3.2.1": {
+      "process": "github:jspm/nodelibs-process@0.1.2"
     },
     "npm:inherits@2.0.1": {
       "util": "github:jspm/nodelibs-util@0.1.0"
