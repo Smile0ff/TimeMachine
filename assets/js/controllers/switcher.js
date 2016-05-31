@@ -14,6 +14,8 @@ class Swicther{
         closePart.on("click", (e) => { this._handleClose(e) });
     }
     _handleSwitch(e){
+        e.preventDefault();
+        
         posClassName = $(e.currentTarget).data("position");
         page.addClass(posClassName);
 

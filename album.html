@@ -35,15 +35,14 @@
 </head>
 <body>
 	<div id="page">
-        <header id="header">
+        <div id="logo-holder">
             <a href="#" class="logo"><img src="build/images/logo.png" alt="Time Machine"></a>
-        </header>
+        </div>
         <div id="toggle-menu" class="touchable">
             <span class="line"></span>
             <span class="line"></span>
             <span class="line"></span>
         </div>
-        <div id="menu-substrate"></div>
         <div id="menu-holder">
             <div class="lang">
                 <a href="#">EN</a>
@@ -154,47 +153,47 @@
 							<span class="upper-title">11 треков в альбоме</span>
 							<span class="underline"></span>
 							<ul>
-								<li class="song" data-song-id="1">
+								<li class="song touchable" data-song-id="1">
 									<span class="song-title">This happened to me<span>2:05</span></span>
 									<span class="lane">текст песни</span>
 								</li>
-								<li class="song" data-song-id="2">
+								<li class="song touchable" data-song-id="2">
 									<span class="song-title">Последние дни<span>2:06</span></span>
 									<span class="lane">текст песни</span>
 								</li>
-								<li class="song" data-song-id="3">
+								<li class="song touchable" data-song-id="3">
 									<span class="song-title">Помогите<span>2:20</span></span>
 									<span class="lane">текст песни</span>
 								</li>
-								<li class="song" data-song-id="4">
+								<li class="song touchable" data-song-id="4">
 									<span class="song-title">Я сегодня один<span>4:29</span></span>
 									<span class="lane">текст песни</span>
 								</li>
-								<li class="song" data-song-id="5">
+								<li class="song touchable" data-song-id="5">
 									<span class="song-title">Замок в небе<span>3:12</span></span>
 									<span class="lane">текст песни</span>
 								</li>
-								<li class="song" data-song-id="6">
+								<li class="song touchable" data-song-id="6">
 									<span class="song-title">Песня про миллионера<span>3:44</span></span>
 									<span class="lane">текст песни</span>
 								</li>
-								<li class="song" data-song-id="7">
+								<li class="song touchable" data-song-id="7">
 									<span class="song-title">Продавец Счастья<span>2:49</span></span>
 									<span class="lane">текст песни</span>
 								</li>
-								<li class="song" data-song-id="8">
+								<li class="song touchable" data-song-id="8">
 									<span class="song-title">Летучий голандец<span>6:53</span></span>
 									<span class="lane">текст песни</span>
 								</li>
-								<li class="song" data-song-id="9">
+								<li class="song touchable" data-song-id="9">
 									<span class="song-title">В круге чистой воды<span>4:56</span></span>
 									<span class="lane">текст песни</span>
 								</li>
-								<li class="song" data-song-id="10">
+								<li class="song touchable" data-song-id="10">
 									<span class="song-title">Черно-белый цвет<span>3:15</span></span>
 									<span class="lane">текст песни</span>
 								</li>
-								<li class="song" data-song-id="11">
+								<li class="song touchable" data-song-id="11">
 									<span class="song-title">Я смотрю в окно<span>6:51</span></span>
 									<span class="lane">текст песни</span>
 								</li>
@@ -202,7 +201,7 @@
 						</div>
 						<div class="song-text-holder">
 							<span class="close-text">вернуться к списку</span>
-							<div class="btn btn-small show-notes">
+							<div class="btn btn-small show-notes touchable">
 								<a href="#"><span>показать ноты</span></a>
 							</div>
 							<span class="underline"></span>
@@ -212,6 +211,9 @@
 				</div>
 			</article>
 		</main>
+        <div id="bg-circle-overlay">
+            <div class="circle"></div>
+        </div>
 		<div id="visualize-holder" data-song="sound/mir_prognetsya.mp3">
 			<canvas id="visualizer"></canvas>
 		</div>
@@ -248,7 +250,7 @@
 		<a href="#" class="logo"><img src="build/images/cheers-logo.png" alt="CHEERS - unlimited web production"></a>
 		<small>© 2016. All rights Reserved. Designed by CHEERS - Unlimited Web Production</small>
 	</footer>
-	<script src="jspm_packages/system.js"></script>
+	<!--script src="jspm_packages/system.js"></script>
 	<script src="jspm.config.js"></script>
 	<script>
 		var body = document.querySelector("body");
@@ -262,7 +264,7 @@
 		}, false);
 
 		System.import("assets/js/app/album");
-	</script>
-	<!--script src="build/js/album.bundle.min.js"></script-->
+	</script-->
+	<script src="build/js/album.bundle.min.js"></script>
 </body>
 </html>

@@ -9,10 +9,7 @@
     right: 80px;
     z-index: 30;
     cursor: pointer;
-    opacity: 1;
-    transform: translateY(-50%);
-    transition: all .75s @easing 0s;
-    visibility: visible;
+    transition: all .5s @easing 1s;
     & > .line{
         display: block;
         width: 100%;
@@ -37,32 +34,15 @@
         & > .line{ transform: translateY(10px); }
     }
     &.active{
-        top: 50%;
-        transform: translateY(-50%);
         & > .line{
             &:nth-child(1){ transform: translateY(10px) rotate(45deg); }
             &:nth-child(2){
-                transition: all .15s @easing 0s;
+                transition: none;
                 opacity: 0;
                 transform: translateY(0px);
             }
             &:nth-child(3){ transform: translateY(10px) rotate(-45deg); }
         }
-    }
-}
-#menu-substrate{
-    width: 160px;
-    height: 160px;
-    position: fixed;
-    top: 50%;
-    right: 0;
-    z-index: 26;
-    transform: translateX(100%) translateY(-50%);
-    transition: all .5s @easing;
-    background: @grey;
-    overflow: hidden;
-    &.active{
-        transform: translateX(0%) translateY(-50%);
     }
 }
 /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
@@ -318,7 +298,6 @@
 @media only screen and @tablet{
     
     #toggle-menu{
-        transform: translateY(0%);
         &:hover{
             & > .line{
                 &:nth-child(1){ transform: translateY(0px); }
@@ -327,8 +306,6 @@
             }
         }
         &.active{
-            top: 80px;
-            transform: translateY(0);
             & > .line{
                 &:nth-child(1){ transform: translateY(10px) rotate(45deg); }
                 &:nth-child(2){
@@ -341,12 +318,13 @@
         }
     }
 
-    #menu-substrate{ display: none; }
-
     #menu-holder{
         .lang{
             width: 80px;
             height: 80px;
+            position: absolute;
+            top: 60px;
+            left: 80px;
             & > a{ line-height: 80px; }  
         }
         .menu{
@@ -371,8 +349,12 @@
         height: 22px;
         top: 40px;
         right: 40px;
-        &.active{
-            top: 40px;
+    }
+
+    #menu-holder{
+        .lang{
+            top: 20px;
+            left: 20px;
         }
     }
 
@@ -382,9 +364,8 @@
 
     #menu-holder{
         .lang{
-            width: 80px;
-            height: 80px;
-            & > a{ line-height: 80px; }  
+            top: 0;
+            left: 0; 
         }
         .menu{
             .entitled{

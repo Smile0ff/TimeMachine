@@ -23,6 +23,8 @@
     }
 }
 
+#bg-circle-overlay{ display: none; }
+
 #visualize-holder{
     width: 100%;
     height: 100%;
@@ -42,7 +44,7 @@
 
 #play-button{
     width: 26px;
-    height: 30px;
+    height: 26px;
     position: fixed;
     right: 80px;
     bottom: 80px;
@@ -58,7 +60,7 @@
         left: 0;
         bottom: 0;
         background: @white;
-        transform: translateY(28px);
+        transform: translateY(24px);
         &:nth-child(1){ left: 0; }
         &:nth-child(2){ left: 6px; }
         &:nth-child(3){ left: 12px; }
@@ -77,8 +79,20 @@
 }
 
 @keyframes play{
-    0% { transform: translateY(28px); }
+    0% { transform: translateY(24px); }
     100% { transform: translateY(0px); }
+}
+
+.__ie #play-button{ display: none; }
+
+.__ie #visualize-holder,
+.__mobile #visualize-holder{
+    display: none;
+}
+
+.__ie #bg-circle-overlay,
+.__mobile #bg-circle-overlay{
+    display: block;
 }
 /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
 /*  layout end                                */
@@ -333,7 +347,230 @@
 /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
 /*  adaptive start                            */
 /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+@media only screen and @tablet{
 
+    #content .outer{ padding: 200px 0 0 16.66666666666667%; }
+    
+    #bg-circle-overlay{ display: block; }
+    #visualize-holder{ display: none; }
+    #play-button{ display: none; }
+    
+    
+    .album-holder{
+        .inner{
+            & > .photo-holder,
+            & > .info-holder{
+                width: 100%;
+                float: none;
+            }
+            & > .photo-holder{
+                padding-left: 40px;
+                .buy-holder{
+                    margin-top: 0;
+                    position: fixed;
+                    top: 50%;
+                    left: 0;
+                    z-index: 10;
+                    transform: translateY(-50%);
+                }
+            }
+            & > .info-holder{
+                margin-top: -360px;
+                .track-list-holder{
+                    padding: 0 40px;
+                    box-sizing: border-box;
+                    .stamp-holder{
+                        margin-top: 0;
+                        .upper-title{ font-size: 2.5em; }
+                    }
+                    & > .upper-title{
+                        margin-top: 20px;
+                        padding: 0 40px 20px;
+                    }
+                    .underline{ margin-left: -40px; }
+                    li{
+                        &.touch-end{
+                            & > .lane{ transform: translateX(-100%); }
+                        }
+                        &.touch-start{
+                            & > .lane{ transform: translateX(0%); }
+                        }
+                    }
+                }
+                .song-text-holder{
+                    padding: 0 40px;
+                    box-sizing: border-box;
+                    .close-text{
+                        margin-top: 0;
+                        font-size: .875em;
+                    }
+                    .btn-small{
+                        right: 40px;
+                        &.touch-end{
+                            a:after{
+                                transform: translateY(0px);
+                                background: @grey;
+                            }
+                        }
+                        &.touch-start{
+                            a:after{
+                                transform: translateY(18px);
+                                background: @white;
+                            }
+                        }
+                    }
+                    .underline{ margin: 80px 0 0 -40px; }
+                    .song-text{
+                        margin-top: 40px;
+                    }
+                    
+                }
+            }
+        }
+    }
+
+}
+
+@media only screen and @mobileL{
+    
+    #content .outer{ padding: 160px 0 0 16.66666666666667%; }
+
+    .album-holder{
+        h1.entitled-holder{
+            padding: 0 40px 0 60px;
+            &:before{
+                width: 40px;
+            }
+        }
+        .inner{
+            margin-top: 40px;
+            .photo-holder{
+                padding-left: 20px;
+                .buy-holder{
+                    li a:before{ width: 20px; }
+                }
+            }
+            .info-holder{
+                margin-top: -200px;
+                .track-list-holder{
+                    padding: 0 20px 0 40px;
+                    .upper-title{
+                        padding: 0 0 20px;
+                    }
+                    .underline{ width: 40px; }
+                    ul{
+                        margin-top: 20px;
+                        li{ padding: 0; }
+                    }
+                }
+                .song-text-holder{
+                    padding: 0 20px 0 40px;
+                    .btn-small{ right: 20px; }
+                    .underline{ width: 40px; }
+                    .song-text{
+                        margin-top: 20px;
+                        p{ padding: 0; }
+                    }
+                }
+            }
+        }
+    }
+
+}
+
+@media only screen and @mobileM{
+
+    #content .outer{ padding: 120px 0 0 16.66666666666667%; }
+
+    .album-holder{
+        margin-bottom: 40px;
+        h1.entitled-holder{
+            padding: 0 20px 0 60px;
+        }
+        .inner{
+            margin-top: 40px;
+            .photo-holder{
+                padding-left: 20px;
+                .buy-holder{
+                    position: absolute;
+                    top: 20px;
+                    left: auto;
+                    right: 0;
+                    transform: translateY(0);
+                    li{
+                        text-align: right;
+                        a{
+                            &:before{ display: none; }
+                            &:after{
+                                display: inline-block;
+                                vertical-align: middle;
+                                width: 20px;
+                                height: 2px;
+                                content: "";
+                                background: @white;
+                                margin-left: 20px;
+                            }
+                        }
+                    }
+                }
+            }
+            .info-holder{
+                margin-top: -160px;
+                .track-list-holder{
+                    .stamp-holder{
+                        .upper-title{ padding-bottom: 0; }
+                    }
+                    ul{
+                        li{
+                            .song-title{
+                                font-size: .875em;
+                                & > span{ padding-right: 0; }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+}
+
+@media only screen and @mobileS{
+
+    #content .outer{ padding: 80px 0 0 16.66666666666667%; }
+    
+    .album-holder{
+        .inner{
+            .info-holder{
+                margin-top: -120px;
+                .track-list-holder{
+                    .stamp-holder{ display: none; }
+                    ul{
+                        li{
+                            height: auto;
+                            .song-title{
+                                height: auto;
+                                position: relative;
+                                line-height: 16px;
+                                padding-right: 40px;
+                                box-sizing: border-box;
+                                & > span{
+                                    position: absolute;
+                                    top: 50%;
+                                    right: 0;
+                                    transform: translateY(-50%);
+                                    font-size: .75em;
+                                }
+                            }
+                            .lane{ display: none; }
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+}
 /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
 /*  adaptive end                              */
 /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/

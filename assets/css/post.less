@@ -20,40 +20,6 @@
         box-sizing: border-box;
     }
 }
-
-#bg-circle-overlay{
-    width: 100%;
-    height: 100%;
-    position: fixed;
-    top: 0;
-    left: 0;
-    z-index: 0;
-    background: @black;
-    overflow: hidden;
-    & > .circle{
-        width: 33.33333333333333%;
-        height: 0;
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        padding-top: 33.33333333333333%;
-        transform: translateX(-50%) translateY(-50%);
-        overflow: hidden;
-        &:before{
-            display: block;
-            width: 100%;
-            height: 100%;
-            position: absolute;
-            top: 0;
-            left: 0;
-            content: "";
-            border-radius: 50%;
-            border: 60px solid @grey;
-            box-sizing: border-box;
-            overflow: hidden;
-        }
-    }
-}
 /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
 /*  layout end                                */
 /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
@@ -316,13 +282,6 @@
 /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
 @media only screen and @tablet{
     
-    #bg-circle-overlay{
-        & > .circle{
-            width: 62.5%;
-            padding-top: 62.5%;
-        }
-    }
-
     #content{
         .outer{
             padding-top: 200px;
