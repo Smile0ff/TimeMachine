@@ -8,13 +8,16 @@ class Lift{
         this.el = el;
         this.data = [];
         this.options = options;
+        this.reqData = options.reqData || {};
         this.eventName = "";
 
         this.dimension = {};
         this.isLoading = false;
         this.isLast = false;
 
-        this.totalCount = this.options.perRequest;
+        $.extend(this.reqData, {
+            "totalCount": this.options.perRequest
+        });
 
         this._events();
         this.setDimension();
@@ -44,7 +47,7 @@ class Lift{
         $.ajax({
             url: this.options.url,
             type: "GET",
-            data: { totalCount: this.totalCount }
+            data: this.reqData
         })
         .done((response) => {
             response = JSON.parse(response);
@@ -88,7 +91,20 @@ class Lift{
         return this.dimension;
     }    
     updateTotalCount(){
-        this.totalCount += this.options.perRequest;
+        this.reqData.totalCount += this.options.perRequest;
+    }
+    update(){
+        this.data = [];
+        this.isLoading = false;
+        this.isLast = false;
+
+        $.extend(this.reqData, { "totalCount": this.options.perRequest });
+    }
+    bind(){
+        this._events();
+    }
+    unbind(){
+        $(window).off();
     }
 }
 

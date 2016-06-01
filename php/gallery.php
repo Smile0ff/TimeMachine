@@ -10,6 +10,7 @@
                 "year"          => "2016",
                 "machineDate"   => "2016-05-19",
                 "humanDate"     => "22 марта",
+                "photoCount"     => "23 фотографии",
                 "title"         => "Lorem ipsum dolor sit amet, consectetur adipiscing elit",
                 "description"   => "Lorem ipsum dolor sit amet, consectetur adipisicing elit.
                                     Harum eius nulla veritatis vitae,psaperspiciatis error ea voluptatem expedita!
@@ -22,6 +23,7 @@
                 "year"          => "2016",
                 "machineDate"   => "2016-05-19",
                 "humanDate"     => "22 марта",
+                "photoCount"     => "23 фотографии",
                 "title"         => "Lorem ipsum dolor sit amet, consectetur adipiscing elit",
                 "description"   => "Lorem ipsum dolor sit amet, consectetur adipisicing elit.
                                     Harum eius nulla veritatis vitae,psaperspiciatis error ea voluptatem expedita!
@@ -34,6 +36,7 @@
                 "year"          => "2016",
                 "machineDate"   => "2016-05-19",
                 "humanDate"     => "22 марта",
+                "photoCount"     => "23 фотографии",
                 "title"         => "Lorem ipsum dolor sit amet, consectetur adipiscing elit",
                 "description"   => "Lorem ipsum dolor sit amet, consectetur adipisicing elit.
                                     Harum eius nulla veritatis vitae,psaperspiciatis error ea voluptatem expedita!

@@ -1,0 +1,97 @@
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+/*  timeline start                            */
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+#timeline-holder{
+    width: 80px;
+    height: 100%;
+    position: fixed;
+    top: 0;
+    right: 80px;
+    z-index: 10;
+    padding: 180px 0 80px;
+    box-sizing: border-box;
+    background: transparent;
+    #timeline{
+        width: 100%;
+        height: 100%;
+        position: relative;
+        background: transparent;
+        .lane{
+            width: 2px;
+            height: 100%;
+            position: absolute;
+            top: 0;
+            right: 0;
+            background: @grey;
+            pointer-events: none;
+            &:before,
+            &:after{
+                display: block;
+                width: 8px;
+                height: 8px;
+                position: absolute;
+                content: "";
+                border-radius: 50%;
+                background: @white;
+            }
+            &:before{
+                top: -4px;
+                left: -3px;
+            }
+            &:after{
+                left: -3px;
+                bottom: -4px;
+            }
+        }
+        #dragger{
+            display: block;
+            width: 16px;
+            height: 16px;
+            position: absolute;
+            top: -8px;
+            right: -7px;
+            z-index: 10;
+            border-radius: 50%;
+            cursor: pointer;
+            overflow: hidden;
+            &:before,
+            &:after{
+                display: block;
+                width: 100%;
+                height: 100%;
+                position: absolute;
+                top: 0;
+                left: 0;
+                content: "";
+                border-radius: 50%;
+            }
+            &:before{
+                background: transparent;
+                border: 2px solid @white;
+                box-sizing: border-box;
+            }
+            &:after{
+                width: 8px;
+                height: 8px;
+                top: 4px;
+                left: 4px;
+                background: @white;
+            }
+        }
+        #year-holder{
+            display: block;
+            width: 40px;
+            height: 16px;
+            position: absolute;
+            top: -8px;
+            right: 16px;
+            font-size: .75em;
+            text-align: center;
+            color: @white;
+            line-height: 16px;
+        }
+    }
+}
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+/*  timeline end                              */
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
