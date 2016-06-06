@@ -2,8 +2,6 @@
     sleep(1);
 
     $response = [
-        "current"   => $_GET["totalCount"],
-        "isLast"    => false,
         "data"  => [
             [
                 "photo"         => "build/images/gallery/covers/1.jpg",
@@ -46,5 +44,30 @@
             ]
         ]
     ];
+
+
+    if( !empty($_GET["tagId"]) ){
+
+        $response["whatIsIt"] = "tags";
+
+    } elseif( !empty($_GET["year"]) ){
+        
+        $response["whatIsIt"] = "timeline";
+
+    } elseif( !empty($_GET["totalCount"]) ){
+        
+        $response["totalCount"] = $_GET["totalCount"];
+        $response["whatIsIt"] = "lift";
+        $response["isLast"] = false;
+
+    } else{
+
+        header("HTTP/1.1 500 Internal Server Error");
+
+        $response = [
+            "title" => "Oooppppps",
+            "message" => "Something goes wrong!"
+        ];
+    }
 
     echo json_encode($response);

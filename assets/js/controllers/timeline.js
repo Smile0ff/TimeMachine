@@ -1,57 +1,38 @@
 "use strict";
 
 import getVendor from "../lib/getVendor";
-import Response from "../core/response";
-import photoAlbumItem from "../templates/photoAlbumItem.hbs!";
 
-let page = $("#page");
-let el = $("#timeline");
+let timeline = $("#timeline");
 let dragger = $("#dragger");
 let yearHolder = $("#year-holder");
-let dataHolder = $("#lift-holder");
 
 let timelineHeight = 0;
 let timelineOffset = {};
 
-let yearStart = el.data("year-start");
-let yearEnd = el.data("year-end");
+let yearStart = timeline.data("year-start");
+let yearEnd = timeline.data("year-end");
+let yearsData = [];
 
 let totalYears = yearEnd - yearStart + 1;
-let yearsData = [];
-let currentYear = yearEnd; 
-
-let mouse = {
-    x: 0,
-    y: 0,
-    oldX: 0,
-    oldY: 0,
-    direction: null
-};
-
-let isPressed = false;
-let isResizing = false;
-let isLoading = false;
 
 let transform = getVendor("transform");
 
 class Timeline{
 
     constructor(){
-        this._events();
+        this.year = yearEnd;
+        this.mouse = {
+            x: 0,
+            y: 0,
+            oldX: 0,
+            oldY: 0,
+            direction: null
+        };
 
-        this.defineTimelineData();
+        this.updateHeight();
+        this.updateOffset();
         this.defineYearsData();
         this.updateYear();
-    }
-    _events(){
-        dragger.on("mousedown", (e) => { this._handleDown(e) });
-        $(window)
-            .on("mousemove", (e) => { this._handleMove(e) })
-            .on("scroll", (e) => { this._handleScroll(e) });
-    }
-    defineTimelineData(){
-        timelineHeight = el.height();
-        timelineOffset = el.offset();
     }
     defineYearsData(){
         let range = timelineHeight / (totalYears - 1);
@@ -65,117 +46,48 @@ class Timeline{
             }
         }
     }
-    _handleDown(e){
-        e.preventDefault();
-        isPressed = true;
+    updateMouse(e){
+        this.mouse.x = e.pageX - timelineOffset.left;
+        this.mouse.y = e.pageY - timelineOffset.top;
 
-        console.log(e.pageX);
+        this.mouse.direction = this.mouse.oldY < this.mouse.y ? "down" : "up";
 
-        mouse.x = e.pageX - timelineOffset.left;
-        mouse.y = e.pageY - timelineOffset.top;
-
-        $(window).one("mouseup", (e) => { this._handleUp(e) });
-        return false;
+        this.mouse.oldX = this.mouse.x;
+        this.mouse.oldY = this.mouse.y;
     }
-    _handleMove(e){
-        if(!isPressed) return;
-
-        mouse.x = e.pageX - timelineOffset.left;
-        mouse.y = e.pageY - timelineOffset.top;
-
-        this.defineDirection();
-
-        if(mouse.y < 0 || mouse.y > timelineHeight) return;
-
-        this.defineCurrentYear();
-        this.updateDragger();
-        this.updateYear();
-
-        mouse.oldX = mouse.x;
-        mouse.oldY = mouse.y;
-
-        return false;
+    inRange(){
+        return (this.mouse.y < 0 || this.mouse.y > timelineHeight) ? false : true;
     }
-    _handleUp(e){
-        e.preventDefault();
-        if(!isPressed) return;
-        isPressed = false;
+    updateCurrentYear(){
+        let yearData = [];
 
-        mouse.x = e.pageX - timelineOffset.left;
-        mouse.y = e.pageY - timelineOffset.top;
-
-        if(mouse.y < 0) mouse.y = 0;
-        if(mouse.y > timelineHeight) mouse.y = timelineHeight;
-
-        this.updateDragger();
-
-        if(isResizing) return;
-
-        isLoading = true;
-        page.addClass("__loading");
-        $(document).trigger("timeline:loadingStart");
-
-        $.ajax({
-            url: "php/timeline.php",
-            type: "GET",
-            data: { year: currentYear }
-        })
-        .done((response) => {
-            response = JSON.parse(response);
-
-            window.setTimeout(() => {
-
-                window.scrollTo(0, 0);
-                this.render(response.data);
-                $(document).trigger("timeline:loadingEnd");
-            }, 100);
-        })
-        .fail((error) => {
-            error = JSON.parse(error.responseText);
-            new Response(error);
-            $(document).trigger("timeline:loadingError");
-        })
-        .always(() => {
-            isLoading = false;
-            page.removeClass("__loading");
-        });
-
-        return false;
-    }
-    _handleScroll(e){
-        this.defineTimelineData();
-
-        return false;
-    }
-    defineDirection(){
-        mouse.direction = mouse.oldY < mouse.y ? "down" : "up";
-    }
-    defineCurrentYear(){
         for(let i = 0, r = totalYears - 1; i < totalYears; r--, i++){
-            let data = (mouse.direction === "down") ? yearsData[i] : yearsData[r];
+            yearData = (this.mouse.direction === "down") ? yearsData[i] : yearsData[r];
 
-            if(mouse.y >= data.position - 3 && mouse.y <= data.position + 3){
-                data.reached = true;
-                if(mouse.direction === "down" && i > 0) yearsData[i - 1]["reached"] = false;
-                if(mouse.direction === "up" && r < totalYears - 1) yearsData[r + 1]["reached"] = false;
+            if(this.mouse.y >= yearData.position - 3 && this.mouse.y <= yearData.position + 3){
+                yearData.reached = true;
+                if(this.mouse.direction === "down" && i > 0) yearsData[i - 1]["reached"] = false;
+                if(this.mouse.direction === "up" && r < totalYears - 1) yearsData[r + 1]["reached"] = false;
 
-                currentYear = data.year;
+                this.year = yearData.year;
             }
         }
     }
+    updateHeight(){
+        timelineHeight = timeline.height();
+    }
+    updateOffset(){
+        timelineOffset = timeline.offset();
+    }
+    updateDraggerPosition(){
+        if(this.mouse.y < 0) this.mouse.y = 0;
+        if(this.mouse.y > timelineHeight) this.mouse.y = timelineHeight;
+    }
     updateDragger(){
-        dragger.css({
-            transform: "translateY("+ mouse.y +"px)"
-        });
+        dragger.css({ transform: "translateY("+ this.mouse.y +"px)" });
     }
     updateYear(){
-        yearHolder.css({
-            transform: "translateY("+ mouse.y +"px)"
-        }).html(currentYear);
-    }
-    render(data){
-        let html = photoAlbumItem({ albums: data });
-        dataHolder.html(html);
+        yearHolder.css({ transform: "translateY("+ this.mouse.y +"px)" }).html(this.year);
     }
 }
 

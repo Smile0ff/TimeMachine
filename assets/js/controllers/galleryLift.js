@@ -1,25 +1,28 @@
 "use strict";
 
-import Lift from "../core/lift";
-import photoAlbumItem from "../templates/photoAlbumItem.hbs!";
+class GalleryLift{
 
-let el = $("#lift-holder");
+    constructor(el, perRequest = 3){
+        this.el = el;
+        this.scrollY = 0;
+        this.perRequest = perRequest;
 
-class GalleryLift extends Lift{
-
-    constructor(){
-        super(el, {
-            url: "/php/gallery.php",
-            perRequest: 3
-        });
-        
-        this.render();
+        this.totalCount = this.perRequest;
     }
-    render(){
-        this.listenTo("data:loaded", (data) => {
-            let html = photoAlbumItem({ albums: data });
-            el.append(html);
-        });
+    updateScrollPosition(){
+        this.scrollY = $(window).scrollTop() + window.innerHeight;
+    }
+    hasReached(){
+        let lastChild = this.el.find(".lift-item:last-child");
+        let lastChildYPosition = lastChild.height() + lastChild.offset().top;
+
+        return (this.scrollY > lastChildYPosition) ? true : false;
+    }
+    updateTotalCount(){
+        this.totalCount += this.perRequest;
+    }
+    resetTotalCount(){
+        this.totalCount = this.perRequest;
     }
 }
 
