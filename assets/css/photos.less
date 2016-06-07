@@ -1,0 +1,76 @@
+@import "components/common.less";
+@import "components/menu.less";
+@import "components/loader.less";
+@import "components/ajax-loader.less";
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+/*  layout start                              */
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+#page,
+#content{
+    height: auto;
+    min-height: 100%;
+}
+
+#content{
+    background: @black;
+    padding-bottom: 80px;
+    .outer{
+        position: relative;
+        z-index: 10;
+        padding: 240px 12.5% 0;
+        box-sizing: border-box;
+    }
+}
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+/*  layout end                                */
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+/*  photos start                              */
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+.photos-holder{
+    h1.entitled-holder{
+        font-family: @djsc;
+        font-size: 1em;
+        color: @white;
+        text-transform: uppercase;
+        overflow: hidden;
+        &:before{
+            display: inline-block;
+            vertical-align: middle;
+            width: 40px;
+            height: 2px;
+            margin-right: 20px;
+            background: @white;
+            content: "";
+            overflow: hidden;
+        }
+    }
+    .inner{
+        margin: 80px 0;
+        position: relative;
+        overflow: hidden;
+        .photo-item{
+            display: block;
+            position: absolute;
+            overflow: hidden;
+            a{
+                display: block;
+                width: 100%;
+                height: auto;
+                overflow: hidden;
+            }
+        }
+    }
+}
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+/*  photos end                                */
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+/*  adaptive start                            */
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+/*  adaptive end                              */
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/

@@ -13,7 +13,7 @@
                 "description"   => "Lorem ipsum dolor sit amet, consectetur adipisicing elit.
                                     Harum eius nulla veritatis vitae,psaperspiciatis error ea voluptatem expedita!
                                     Perferendis quis nisi ad odit tempore error atque dolor aspernatur porro!",
-                "link"          => "#",
+                "link"          => "photos.html",
                 "linkTitle"     => "view"
             ],
             [
@@ -26,7 +26,7 @@
                 "description"   => "Lorem ipsum dolor sit amet, consectetur adipisicing elit.
                                     Harum eius nulla veritatis vitae,psaperspiciatis error ea voluptatem expedita!
                                     Perferendis quis nisi ad odit tempore error atque dolor aspernatur porro!",
-                "link"          => "#",
+                "link"          => "photos.html",
                 "linkTitle"     => "view"
             ],
             [
@@ -39,7 +39,7 @@
                 "description"   => "Lorem ipsum dolor sit amet, consectetur adipisicing elit.
                                     Harum eius nulla veritatis vitae,psaperspiciatis error ea voluptatem expedita!
                                     Perferendis quis nisi ad odit tempore error atque dolor aspernatur porro!",
-                "link"          => "#",
+                "link"          => "photos.html",
                 "linkTitle"     => "view"
             ]
         ]
