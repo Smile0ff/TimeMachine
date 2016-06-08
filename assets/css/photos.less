@@ -2,6 +2,7 @@
 @import "components/menu.less";
 @import "components/loader.less";
 @import "components/ajax-loader.less";
+@import "components/carousel.less";
 /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
 /*  layout start                              */
 /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
@@ -34,13 +35,18 @@
         font-size: 1em;
         color: @white;
         text-transform: uppercase;
+        padding: 0 20px 0 100px;
+        box-sizing: border-box;
+        position: relative;
         overflow: hidden;
         &:before{
-            display: inline-block;
-            vertical-align: middle;
+            display: block;
             width: 80px;
             height: 2px;
-            margin-right: 20px;
+            position: absolute;
+            top: 50%;
+            left: 0;
+            transform: translateY(-50%);
             background: @white;
             content: "";
             overflow: hidden;
@@ -95,7 +101,64 @@
 /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
 /*  adaptive start                            */
 /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+@media only screen and @tablet{
 
+    #content .outer{ padding: 200px 0 0 16.66666666666667%; }
+
+    .photos-holder{
+        .inner{ padding-left: 40px; }
+    }
+
+    #photo-list-holder{
+        .photo-item{
+            position: relative;
+            margin-bottom: 40px;
+            &:last-child{ margin-bottom: 0; }
+            a{
+                pointer-events: none;
+                &:before{ display: none; }
+            }
+        }
+    }
+
+}
+
+@media only screen and @mobileL{
+
+    #content .outer{ padding: 160px 0 0 16.66666666666667%; }
+
+    .photos-holder{
+        h1.entitled-holder{
+            padding: 0 20px 0 60px;
+            &:before{ width: 40px; }
+        }
+        .inner{
+            margin: 40px 0;
+            padding-left: 20px;
+        }
+    }
+
+}
+
+@media only screen and @mobileM{
+
+    #content .outer{ padding: 120px 0 0 16.66666666666667%; }
+
+    #photo-list-holder{
+        .photo-item{
+            margin-bottom: 20px;
+        }
+    }
+}
+
+@media only screen and @mobileS{
+
+    #content .outer{ padding: 80px 0 0 16.66666666666667%; }
+
+    .photos-holder{
+        .inner{ padding-left: 0; }
+    }
+}
 /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
 /*  adaptive end                              */
 /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/

@@ -1,0 +1,143 @@
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+/*  carousel start                            */
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+#carousel-holder{
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 99;
+    background: @black;
+    transition: all .75s @easing .5s;
+    transform: translateX(-100%);
+    visibility: hidden;
+    overflow: hidden;
+    & > .close{
+        width: 40px;
+        height: 40px;
+        position: absolute;
+        top: 80px;
+        right: 80px;
+        z-index: 10;
+        cursor: pointer;
+        opacity: 0;
+        background: transparent;
+        transition: all .5s @easing 0s;
+        visibility: hidden;
+        overflow: hidden;
+        & > .line{
+            width: 100%;
+            height: 2px;
+            position: absolute;
+            top: 50%;
+            left: 0;
+            background: @white;
+            transform: translateY(-50%) rotate(45deg);
+            &:nth-child(2){ transform: translateY(-50%) rotate(-45deg); }
+        }
+    }
+    & > .photo-holder,
+    & > .info-holder{
+        width: 50%;
+        height: 100%;
+        position: relative;
+        float: left;
+        overflow: hidden;
+    }
+    .photo-holder{
+        figure{
+            &.portrait{
+                width: auto;
+                height: 100%;
+                position: absolute;
+                top: 0;
+                right: 0;
+                overflow: hidden;
+                & > img{
+                    width: auto;
+                    height: 100%;
+                }
+            }
+            &.landscape{
+                width: 100%;
+                height: auto;
+                position: absolute;
+                top: 50%;
+                left: 0;
+                transform: translateY(-50%);
+                overflow: hidden;
+            }
+        }
+    }
+    .info-holder{
+        overflow: visible;
+        & > .inner{
+            position: absolute;
+            top: 50%;
+            left: 0;
+            z-index: 10;
+            transform: translateY(-50%);
+            .upper-title{
+                display: block;
+                width: 100%;
+                height: auto;
+                font-family: @djsl;
+                color: @white;
+                text-align: left;
+                padding: 0 0 20px 20px;
+            }
+            .underline{ margin-left: -40px; }
+            p{
+                color: @white;
+                padding: 40px 40px 0;
+            }
+        }
+    }
+    .navigation-holder{
+        width: 120px;
+        height: auto;
+        position: absolute;
+        left: 50%;
+        bottom: 80px;
+        z-index: 10;
+        margin-left: -60px;
+        .arrow{
+            display: block;
+            float: left;
+            cursor: pointer;
+            transition: all .25s @easing;
+            &.left{ transform: rotate(180deg); }
+            &.right{ float: right; }
+            &:hover{
+                &.left{ transform: translateX(-10px) rotate(180deg); }
+                &.right{ transform: translateX(10px); }
+            }
+        }
+    }
+    &.active{
+        transition: all .75s @easing 0s;
+        transform: translateX(0%);
+        visibility: visible;
+        .close{
+            transition: all .5s @easing .75s;
+            opacity: 1;
+            visibility: visible;
+        }
+    }
+}
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+/*  carousel end                              */
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+/*  adaptive start                            */
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+@media only screen and @tablet{
+
+    #carousel-holder{ display: none; }
+
+}
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+/*  adaptive end                              */
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
