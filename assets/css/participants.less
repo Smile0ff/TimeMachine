@@ -1,0 +1,155 @@
+@import "components/common.less";
+@import "components/layout.less";
+@import "components/menu.less";
+@import "components/loader.less";
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+/*  layout start                              */
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+/*  layout end                                */
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+/*  participants start                        */
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+.questionary-holder{
+    margin-bottom: 80px;
+    padding-left: 80px;
+    box-sizing: border-box;
+    .questionary-entitled{
+        font-family: @djsc;
+        font-size: 4.5em;
+        text-align: right;
+        text-transform: uppercase;
+        color: @grey;
+    }
+    .questionary-item{
+        width: 100%;
+        height: auto;
+        margin-top: 40px;
+        position: relative;
+        overflow: hidden;
+        .square-num{
+            width: 80px;
+            height: 80px;
+            position: absolute;
+            top: 0;
+            left: 0;
+            background: @grey;
+            & > .num{
+                display: block;
+                width: 20px;
+                height: 20px;
+                font-family: @djsl;
+                font-size: 1em;
+                color: @white;
+                text-align: center;
+                line-height: 20px;
+                margin: 15px 0 0 10px;
+            }
+        }
+        .info-holder{
+            width: 100%;
+            height: auto;
+            padding-left: 80px;
+            position: relative;
+            z-index: 10;
+            box-sizing: border-box;
+            h3{
+                margin-top: 20px;
+                font-family: @djsc;
+                font-size: 1em;
+                text-align: left;
+                color: @white;
+                padding-left: 40px;
+                text-transform: uppercase;
+                position: relative;
+                &:before{
+                    display: block;
+                    width: 40px;
+                    height: 2px;
+                    position: absolute;
+                    top: 50%;
+                    left: -20px;
+                    content: "";
+                    background: @white;
+                    overflow: hidden;
+                }
+            }
+            p{
+                text-align: left;
+                color: @white;
+                padding: 20px 0 0 20px;
+            }
+        }
+    }
+}
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+/*  participants end                          */
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+/*  adaptive start                            */
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+@media only screen and @tablet{
+
+    .questionary-holder{
+        padding-left: 40px;
+        .questionary-entitled{
+            padding-right: 40px;
+        }
+        .questionary-item{
+            .info-holder{
+                h3{ padding: 0 20px 0 40px; }
+                p{ padding: 20px 20px 0; }
+            }
+        }
+    }
+
+}
+
+@media only screen and @mobileM{
+    
+    .questionary-holder{
+        padding-left: 0;
+        margin-bottom: 40px;
+        .questionary-entitled{ font-size: 2.5em; }
+        .questionary-item{
+            .square-num{ display: none; }
+            .info-holder{
+                padding-left: 0;
+                h3{
+                    margin-top: 0px;
+                    padding: 0 20px 0 60px;
+                    &:before{
+                        left: 0px;
+                    }
+                }
+                p{
+                    text-align: left;
+                    color: @white;
+                    padding: 20px 0 0 20px;
+                }
+            }
+        }
+    }
+
+}
+
+@media only screen and @mobileS{
+    
+    .questionary-holder{
+        .questionary-item{
+            .info-holder{
+                h3{
+                    padding: 0 20px 0 40px;
+                    &:before{ width: 20px; }
+                }
+            }
+        }
+    }
+
+}
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+/*  adaptive end                              */
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
