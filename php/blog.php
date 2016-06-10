@@ -11,6 +11,7 @@
                 "year"          => "2016",
                 "machineDate"   => "2016-03-22",
                 "humanDate"     => "22 марта",
+                "viewCount"     => "100 просмотров",
                 "title"         => "Lorem ipsum dolor sit amet, consectetur adipiscing elit",
                 "description"   => "Lorem ipsum dolor sit amet, consectetur adipisicing elit.
                                     Harum eius nulla veritatis vitae,psaperspiciatis error ea voluptatem expedita!
@@ -24,6 +25,7 @@
                 "year"          => "2016",
                 "machineDate"   => "2016-03-22",
                 "humanDate"     => "22 марта",
+                "viewCount"     => "100 просмотров",
                 "title"         => "Lorem ipsum dolor sit amet, consectetur adipiscing elit",
                 "description"   => "Lorem ipsum dolor sit amet, consectetur adipisicing elit.
                                     Harum eius nulla veritatis vitae,psaperspiciatis error ea voluptatem expedita!
@@ -37,6 +39,7 @@
                 "year"          => "2016",
                 "machineDate"   => "2016-03-22",
                 "humanDate"     => "22 марта",
+                "viewCount"     => "100 просмотров",
                 "title"         => "Lorem ipsum dolor sit amet, consectetur adipiscing elit",
                 "description"   => "Lorem ipsum dolor sit amet, consectetur adipisicing elit.
                                     Harum eius nulla veritatis vitae,psaperspiciatis error ea voluptatem expedita!
