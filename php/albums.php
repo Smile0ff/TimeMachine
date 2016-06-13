@@ -8,6 +8,7 @@
             [
                 "cover"         => "build/images/covers/1.jpg",
                 "year"          => "1976",
+                "songCount"     => "27 песен",
                 "title"         => "Lorem ipsum dolor sit amet, consectetur adipiscing elit",
                 "description"   => "Lorem ipsum dolor sit amet, consectetur adipisicing elit.
                                     Harum eius nulla veritatis vitae,psaperspiciatis error ea voluptatem expedita!
@@ -18,6 +19,7 @@
             [
                 "cover"         => "build/images/covers/1.jpg",
                 "year"          => "1976",
+                "songCount"     => "27 песен",
                 "title"         => "Lorem ipsum dolor sit amet, consectetur adipiscing elit",
                 "description"   => "Lorem ipsum dolor sit amet, consectetur adipisicing elit.
                                     Harum eius nulla veritatis vitae,psaperspiciatis error ea voluptatem expedita!
@@ -28,6 +30,7 @@
             [
                 "cover"         => "build/images/covers/1.jpg",
                 "year"          => "1976",
+                "songCount"     => "27 песен",
                 "title"         => "Lorem ipsum dolor sit amet, consectetur adipiscing elit",
                 "description"   => "Lorem ipsum dolor sit amet, consectetur adipisicing elit.
                                     Harum eius nulla veritatis vitae,psaperspiciatis error ea voluptatem expedita!
