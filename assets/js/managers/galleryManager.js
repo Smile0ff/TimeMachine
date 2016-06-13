@@ -49,7 +49,10 @@ class GalleryManager{
             .setTagId();
 
         this.service
-            .getData({ tagId: this.tags.tagId })
+            .getData({
+                tagId: this.tags.tagId,
+                year: this.timeline.year
+            })
             .done((response) => {
                 response = JSON.parse(response);
                 
@@ -108,7 +111,10 @@ class GalleryManager{
         this.loadingStart();
 
         this.service
-            .getData({ year: this.timeline.year })
+            .getData({
+                year: this.timeline.year,
+                tagId: this.tags.tagId
+            })
             .done((response) => {
                 response = JSON.parse(response);
                 
@@ -143,7 +149,11 @@ class GalleryManager{
         this.loadingStart();
 
         this.service
-            .getData({ totalCount: this.lift.totalCount })
+            .getData({
+                totalCount: this.lift.totalCount,
+                tagId: this.tags.tagId,
+                year: this.timeline.year
+            })
             .done((response) => {
                 response = JSON.parse(response);
 
