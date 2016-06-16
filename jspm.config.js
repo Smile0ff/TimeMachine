@@ -22,6 +22,7 @@ System.config({
     "handlebars": "github:components/handlebars.js@4.0.5",
     "hbs": "github:davis/plugin-hbs@1.2.1",
     "jquery": "npm:jquery@2.2.4",
+    "jquery-validation": "github:jzaefferer/jquery-validation@1.15.0",
     "mediaelement": "npm:mediaelement@2.21.2",
     "social-likes": "npm:social-likes@3.1.0",
     "github:davis/plugin-hbs@1.2.1": {
@@ -41,6 +42,9 @@ System.config({
     },
     "github:jspm/nodelibs-util@0.1.0": {
       "util": "npm:util@0.10.3"
+    },
+    "github:jzaefferer/jquery-validation@1.15.0": {
+      "jquery": "npm:jquery@2.2.4"
     },
     "npm:assert@1.4.0": {
       "assert": "github:jspm/nodelibs-assert@0.1.0",

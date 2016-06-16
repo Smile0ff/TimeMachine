@@ -1,0 +1,171 @@
+@import "components/common.less";
+@import "components/menu.less";
+@import "components/loader.less";
+@import "components/ajax-loader.less";
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+/*  layout start                              */
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+#page,
+#content{
+    height: auto;
+    min-height: 100%;
+}
+
+#content{
+    & > .outer{
+        position: relative;
+        z-index: 10;
+        padding: 240px 12.5% 0;
+        box-sizing: border-box;
+    }
+}
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+/*  layout end                                */
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+/*  subscribe start                           */
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+.subscribe-holder{
+    h1.entitled-holder{
+        display: block;
+        width: 100%;
+        height: auto;
+        font-family: @djsc;
+        font-size: 1em;
+        text-transform: uppercase;
+        text-align: left;
+        color: @white;
+        &:before{
+            display: inline-block;
+            vertical-align: middle;
+            width: 80px;
+            height: 2px;
+            background: @white;
+            margin-right: 20px;
+            content: "";
+        }
+    }
+    & > p{
+        color: @white;
+        text-align: left;
+        padding: 20px 40px 0 80px;
+    }
+}
+
+
+::-webkit-input-placeholder{
+    font-family: @djsl;
+    font-size: 1em;
+    text-align: left;
+    color: @white;
+}
+:-moz-placeholder{
+    font-family: @djsl;
+    font-size: 1em;
+    text-align: left;
+    color: @white;
+}
+::-moz-placeholder{
+    font-family: @djsl;
+    font-size: 1em;
+    text-align: left;
+    color: @white;   
+}
+:-ms-input-placeholder{
+    font-family: @djsl;
+    font-size: 1em;
+    text-align: left;
+    color: @white;
+}
+
+#subscribe-form{
+    display: block;
+    width: 100%;
+    height: auto;
+    margin-top: 80px;
+    position: relative;
+    overflow: hidden;
+    .field-holder{
+        width: 100%;
+        height: auto;
+        overflow: hidden;
+    }
+    input[type="email"]{
+        display: block;
+        width: 100%;
+        height: 80px;
+        padding: 0;
+        margin: 0;
+        border: none;
+        font-family: @djs;
+        font-size: 1em;
+        text-align: left;
+        text-indent: 20px;
+        color: @white;
+        background: transparent;
+        border-bottom: 2px solid @grey;
+        transition: all .5s @easing;
+        box-sizing: border-box;
+        &:focus,
+        &:hover{
+            border-bottom: 2px solid @white;
+        }
+    }
+    button[type="submit"]{
+        display: block;
+        width: 200px;
+        height: 30px;
+        padding: 0;
+        margin: 80px 80px 0 0;
+        border: none;
+        float: right;
+        position: relative;
+        background: transparent;
+        overflow: hidden;
+        &:before{
+            display: block;
+            width: 100%;
+            height: 20px;
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            content: "";
+            background: @grey;
+            transition: all .5s @easing;
+        }
+        span{
+            display: block;
+            width: 100%;
+            height: 20px;
+            position: absolute;
+            top: 0;
+            left: 0;
+            z-index: 10;
+            background: transparent;
+            font-family: @djsc;
+            font-size: 1em;
+            text-align: center;
+            color: @white;
+            line-height: 20px;
+        }
+        &:hover{
+            &:before{
+                transform: translateY(18px);
+                background: @white;
+            }
+        }
+    }
+    label.error{
+        display: block;
+        width: 100%;
+        height: auto;
+        font-family: @djsl;
+        font-size: .875em;
+        color: @error;
+        margin-top: 10px;
+    }
+}
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+/*  subscribe end                             */
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/

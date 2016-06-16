@@ -79,6 +79,33 @@
             text-align: center;
         }  
     }
+    .subscribe-button{
+        display: inline-block;
+        width: auto;
+        height: 160px;
+        position: absolute;
+        top: 0;
+        left: 200px;
+        background: transparent;
+        a{
+            display: inline-block;
+            width: auto;
+            height: 100%;
+            font-family: @djsc;
+            color: @white;
+            text-align: center;
+            line-height: 160px;
+            &:before{
+                display: inline-block;
+                vertical-align: middle;
+                width: 40px;
+                height: 2px;
+                background: @white;
+                margin-right: 20px;
+                content: "";
+            }
+        }
+    }
     .menu{
         width: 100%;
         height: auto;
@@ -327,6 +354,7 @@
             left: 80px;
             & > a{ line-height: 80px; }  
         }
+        .subscribe-button{ display: none; }
         .menu{
             .entitled{ padding-left: 80px; }
             & > nav{
