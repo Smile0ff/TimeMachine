@@ -1,24 +1,35 @@
-{{#each albums}}
+{{#if albums.noContent}}
 
-    <article class="item lift-item">
-        <div class="photo-holder">
-            <div class="photo">
-                <figure>
-                    <img src="{{ photo }}" alt="{{ title }}">
-                </figure>
+    <div class="empty-holder">
+        <p>{{ albums.noContent }}</p>
+    </div>
+
+{{else}}
+    
+    {{#each albums}}
+    
+        <article class="item lift-item">
+            <div class="photo-holder">
+                <a href="{{ link }}" class="photo">
+                    <figure>
+                        <img src="{{ photo }}" alt="{{ title }}">
+                    </figure>
+                </a>
             </div>
-        </div>
-        <div class="stamp-holder">
-            <time class="upper-title" datetime="{{ machineDate }}">{{ year }}</time>
-            <span class="sub-title">{{ humanDate }}</span>
-        </div>
-        <div class="info-holder">
-            <span class="upper-title">{{ photoCount }}</span>
-            <span class="underline"></span>
-            <h2>{{ title }}</h2>
-            <p>{{ description }}</p>
-            <a href="{{ link }}">{{ linkTitle }}<span class="arrow"></span></a>
-        </div>
-    </article>
+            <div class="stamp-holder">
+                <time class="upper-title" datetime="{{ machineDate }}">{{ year }}</time>
+                <span class="sub-title">{{ humanDate }}</span>
+            </div>
+            <div class="info-holder">
+                <span class="upper-title">{{ photoCount }}</span>
+                <span class="underline"></span>
+                <h2>{{ title }}</h2>
+                <p>{{ description }}</p>
+                <a href="{{ link }}">{{ linkTitle }}<span class="arrow"></span></a>
+            </div>
+        </article>
 
-{{/each}}
+    {{/each}}
+
+{{/if}}
+

@@ -2,11 +2,23 @@
 
     <article class="item lift-item">
         <div class="photo-holder">
-            <div class="photo">
-                <figure>
-                    <img src="{{ photo }}" alt="{{ photoTitle }}">
-                </figure>
-            </div>
+            {{#if link}}
+                
+                <a href="{{ link }}" class="photo">
+                    <figure>
+                        <img src="{{ photo }}" alt="{{ photoTitle }}">
+                    </figure>
+                </a>
+
+            {{else}}
+
+                <div class="photo">
+                    <figure>
+                        <img src="{{ photo }}" alt="{{ photoTitle }}">
+                    </figure>
+                </div>
+
+            {{/if}}
         </div>
         <div class="stamp-holder">
             <span class="upper-title">{{ entryYear }}</span>
@@ -17,6 +29,13 @@
             <span class="underline"></span>
             <h2>{{ title }}</h2>
             <p>{{ description }}</p>
+
+            {{#if link}}
+
+                <a href="{{ link }}">подробнее<span class="arrow"></span></a>
+
+            {{/if}}
+
         </div>
     </article>
 

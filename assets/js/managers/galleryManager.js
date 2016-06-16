@@ -55,9 +55,10 @@ class GalleryManager{
             })
             .done((response) => {
                 response = JSON.parse(response);
-                
+
                 isReplaceHTML = true;
                 isScrollable = true;
+                isLast = response.isLast;
 
                 this.lift.resetTotalCount();
                 this.tags.activateCurrent();
@@ -120,6 +121,7 @@ class GalleryManager{
                 
                 isReplaceHTML = true;
                 isScrollable = true;
+                isLast = response.isLast;
 
                 this.lift.resetTotalCount();
 

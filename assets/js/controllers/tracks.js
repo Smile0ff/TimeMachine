@@ -22,14 +22,14 @@ class Tracks{
     }
     _handleTrack(e){
         let target = $(e.currentTarget);
-        let sondId = target.data("song-id");
+        let songId = target.data("song-id");
 
         page.addClass("__loading");
 
         $.ajax({
             url: "/php/song.php",
             type: "GET",
-            data: { sondId: sondId }
+            data: { songId: songId }
         })
         .done((response) => {
             response = JSON.parse(response);

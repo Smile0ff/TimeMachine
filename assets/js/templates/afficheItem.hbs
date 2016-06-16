@@ -17,8 +17,15 @@
             <span class="underline"></span>
             <h2>{{ title }}</h2>
             <p>{{ description }}</p>
-            <a href="{{ link }}">{{ linkTitle }}<span class="arrow"></span></a>
+            {{#if link}}
+                <a href="{{ link }}">{{ linkTitle }}<span class="arrow"></span></a>
+            {{else}}
+                <span class="no-link">{{ noLinkTitle }}</span>
+            {{/if}}
+            
         </div>
     </article>
+
+
 
 {{/each}}

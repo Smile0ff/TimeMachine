@@ -9,11 +9,11 @@ import Circle from "./circle";
 const LINE_COUNT = 180;
 const LINE_WIDTH = 1;
 const LINE_HEIGHT = 30;
-const LINE_COLOR = "#0f0f0f";
+const LINE_COLOR = "#141414";
 
 const CIRCLE_RADIUS = 1;
 const CIRCLE_COUNT = 180;
-const CIRCLE_COLOR = "#0f0f0f";
+const CIRCLE_COLOR = "#141414";
 
 let canvas = $("#visualizer");
 let context = canvas[0].getContext("2d");

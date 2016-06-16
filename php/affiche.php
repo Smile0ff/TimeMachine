@@ -17,7 +17,8 @@
                                     Harum eius nulla veritatis vitae,psaperspiciatis error ea voluptatem expedita!
                                     Perferendis quis nisi ad odit tempore error atque dolor aspernatur porro!",
                 "link"          => "#",
-                "linkTitle"     => "tickets"
+                "linkTitle"     => "tickets",
+                "noLinkTitle"   => "билетов нет"
             ],
             [
                 "photo"         => "build/images/affiche/2.jpg",
@@ -30,8 +31,9 @@
                 "description"   => "Lorem ipsum dolor sit amet, consectetur adipisicing elit.
                                     Harum eius nulla veritatis vitae,psaperspiciatis error ea voluptatem expedita!
                                     Perferendis quis nisi ad odit tempore error atque dolor aspernatur porro!",
-                "link"          => "#",
-                "linkTitle"     => "tickets"
+                "link"          => "",
+                "linkTitle"     => "tickets",
+                "noLinkTitle"   => "билетов нет"
             ],
             [
                 "photo"         => "build/images/affiche/1.jpg",
@@ -45,7 +47,8 @@
                                     Harum eius nulla veritatis vitae,psaperspiciatis error ea voluptatem expedita!
                                     Perferendis quis nisi ad odit tempore error atque dolor aspernatur porro!",
                 "link"          => "#",
-                "linkTitle"     => "tickets"
+                "linkTitle"     => "tickets",
+                "noLinkTitle"   => "билетов нет"
             ]
         ]
     ];
