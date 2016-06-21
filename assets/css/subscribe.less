@@ -2,6 +2,7 @@
 @import "components/menu.less";
 @import "components/loader.less";
 @import "components/ajax-loader.less";
+@import "components/ajax-response.less";
 /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
 /*  layout start                              */
 /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
@@ -50,6 +51,18 @@
         color: @white;
         text-align: left;
         padding: 20px 40px 0 80px;
+    }
+}
+
+#subscribe-data-container{
+    & > p{
+        margin-top: 80px;
+        color: @white;
+        text-align: left;
+        padding: 40px;
+    }
+    &.active{
+        background: @grey;
     }
 }
 

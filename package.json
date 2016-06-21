@@ -21,6 +21,7 @@
     "glob": "^7.0.0",
     "gulp": "^3.9.1",
     "gulp-imagemin": "^2.4.0",
+    "gulp-mjml": "^1.0.1",
     "imagemin-pngquant": "^4.2.2",
     "jspm": "^0.16.30"
   },

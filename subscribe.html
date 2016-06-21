@@ -136,7 +136,7 @@
 			<section class="outer subscribe-holder">
 				<h1 class="entitled-holder">Subscribition</h1>
 				<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Illo unde illum nulla nobis quod delectus necessitatibus laudantium blanditiis sequi nemo! Voluptates labore nam accusamus necessitatibus iure explicabo ea, quasi nemo.</p>
-				<div class="inner" id="subscribe-holder">
+				<div class="inner" id="subscribe-data-container">
 					<form action="php/subscribe.php" method="POST" id="subscribe-form">
 						<div class="field-holder">
 							<input type="email" name="subscribition[email]" value="" placeholder="Введите ваш электронный адрес" id="subscribition-email" data-rule-required="true" data-msg-required="Вы не указали электронный адрес" data-rule-email="true" data-msg-email="Элетронный адрес введен не верно">
@@ -148,6 +148,7 @@
 				</div>
 			</section>
 		</main>
+		<div id="ajax-response-holder"></div>
 		<div id="bg-circle-overlay">
 			<div class="circle"></div>
 		</div>

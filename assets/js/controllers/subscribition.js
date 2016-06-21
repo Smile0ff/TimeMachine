@@ -1,9 +1,9 @@
 "use strict";
 
-import subscribeTpl from "../templates/subscribe.hbs!";
+import Response from "../core/response";
 
 let page = $("#page");
-let subscribeHolder = $("#subscribe-holder");
+let subscribeDataContainer = $("#subscribe-data-container");
 
 class Subscribition{
 
@@ -31,10 +31,13 @@ class Subscribition{
         .done((response) => {
             response = JSON.parse(response);
 
-            this.render(response);
+            form[0].reset();
+
+            this.render(response.message);
         })
         .fail((error) => {
-
+            error = JSON.parse(error.responseText);
+            new Response(error);
         })
         .always(() => {
             page.removeClass("__loading");
@@ -42,9 +45,8 @@ class Subscribition{
         
         return false;
     }
-    render(data){
-        let html = subscribeTpl(data);
-        subscribeHolder.html(html);
+    render(message){
+        subscribeDataContainer.html(`<p>${ message }</p>`).addClass("active");
     }
 }
 

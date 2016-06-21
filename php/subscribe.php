@@ -7,7 +7,6 @@
     if(!empty($email) && strlen($email) >= 5){
 
         $response = [
-            "title" => "Success",
             "message" => "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Assumenda quis dolorum voluptatibus quasi dicta, laborum ipsam, similique eius, ut inventore eos debitis ea maiores iusto aspernatur laudantium placeat tempore omnis!"
         ];
 

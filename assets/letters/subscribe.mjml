@@ -1,0 +1,25 @@
+<mjml>
+    <mj-body>
+        <mj-container background-color="#000">
+
+            <!--pre header-->
+            <mj-section>
+                <mj-column>
+                    <mj-text font-family="Ubuntu, Helvetica, Arial, sans-serif" color="#fff" font-size="13px" align="left">[[HEADLINE]]</mj-text>
+                </mj-column>
+                <mj-column>
+                    <mj-text font-family="Ubuntu, Helvetica, Arial, sans-serif" color="#fff" font-size="13px" align="right">[[LINK]]</mj-text>
+                </mj-column>
+            </mj-section>
+            <!--header-->
+            <mj-section>
+                
+            </mj-section>
+            <!--content-->
+            <mj-section></mj-section>
+            <!--footer-->
+            <mj-section></mj-section>
+
+        </mj-container>
+    </mj-body>
+</mjml>

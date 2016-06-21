@@ -5,7 +5,9 @@ var gulp = require("gulp"),
     exec = require("child_process").exec,
 
     imagemin = require("gulp-imagemin"),
-    pngquant = require("imagemin-pngquant");
+    pngquant = require("imagemin-pngquant"),
+
+    mjml = require("gulp-mjml");
 
 
 gulp.task("js", function(){
@@ -59,6 +61,13 @@ gulp.task("images", function(){
         .pipe(gulp.dest(cfg.build +"/images/"));
 });
 
+gulp.task("letters", function(){
+
+    gulp.src(cfg.letters +"/*.mjml")
+        .pipe(mjml())
+        .pipe(gulp.dest(cfg.build +"/letters/"))
+});
+
 gulp.task("watcher", function(){
     
     //gulp.watch(cfg.js +"/**/*.js", ["js"]);
@@ -66,7 +75,8 @@ gulp.task("watcher", function(){
     gulp.watch(cfg.fonts +"/**/*.*", ["fonts"]);
     gulp.watch(cfg.templates +"/**/*.hbs", ["templates"]);
     gulp.watch(cfg.images +"/**/*.*", ["images"]);
+    gulp.watch(cfg.letters +"/*.mjml", ["letters"]);
 
 });
 
-gulp.task("default", ["css", "fonts", "templates", "images", "watcher"]);
+gulp.task("default", ["css", "fonts", "templates", "images", "letters", "watcher"]);
