@@ -52,6 +52,38 @@
         text-align: left;
         padding: 20px 40px 0 80px;
     }
+    & > a{
+        display: inline-block;
+        vertical-align: top;
+        color: #fff;
+        float: right;
+        margin: 80px 160px 0 0;
+        .arrow{
+            transition: all .25s @easing;
+            margin-left: 10px;
+        }
+        &:hover{
+            .arrow{
+                transform: translateX(10px);
+            }
+        }
+    }
+    & > .buttons-holder{
+        text-align: right;
+        margin-top: 80px;
+        .btn{
+            display: inline-block;
+            vertical-align: middle;
+            margin-right: 160px;
+        }
+        & > a{
+            display: inline-block;
+            vertical-align: middle;
+            color: #fff;
+            font-size: .875em;
+            margin-right: 40px; 
+        }
+    }
 }
 
 #subscribe-data-container{

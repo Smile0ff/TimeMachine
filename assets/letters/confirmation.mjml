@@ -1,0 +1,54 @@
+<mjml>
+    <mj-body>
+        <mj-container background-color="#000">
+            <!--pre header-->
+            <mj-section>
+                <mj-group>
+                    <mj-column vertical-align="top">
+                        <mj-text font-family="Ubuntu, Helvetica, Arial, sans-serif" color="#fff" font-size="13px" align="left">[[HEADLINE]]</mj-text>
+                    </mj-column>
+                    <mj-column vertical-align="top">
+                        <mj-text font-family="Ubuntu, Helvetica, Arial, sans-serif" color="#fff" font-size="13px" align="right">
+                            <a href="#" style="text-decoration: none; text-transform: uppercase; font-weight: 300; color: #fff;">[[permalink]]</a>
+                        </mj-text>
+                    </mj-column>
+                </mj-group>
+            </mj-section>
+            <!--header-->
+            <mj-section>
+                <mj-column vertical-align="middle" width="25%">
+                    <mj-image src="http://time-machine.dev/build/images/logo.png" alt="Time Machine" width="80px" align="left"></mj-image>
+                </mj-column>
+                <mj-column vertical-align="middle" width="75%">
+                    <mj-text font-family="Ubuntu, Helvetica, Arial, sans-serif" color="#fff" font-size="13px" align="left">
+                        <p style="font-weight: bold; font-size: 16px; text-transform: uppercase;">Subscribition</p>
+                        <p style="font-weight: normal; font-size: 16px;">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+                        tempor incididunt ut labore et dolore magna aliqua.</p>
+                    </mj-text>
+                </mj-column>
+            </mj-section>
+            <!--content-->
+            <mj-section>
+                <mj-column>
+                    <mj-text font-family="Ubuntu, Helvetica, Arial, sans-serif" color="#fff" font-size="13px" align="left" padding="0 20px">
+                        <p style="font-weight: bold; font-size: 16px; text-transform: uppercase;">Confirmation</p>
+                    </mj-text>
+                    <mj-divider border-width="1px" border-style="solid" border-color="#141414" />
+                    <mj-text font-family="Ubuntu, Helvetica, Arial, sans-serif" color="#fff" font-size="13px" align="left" padding="0 20px">
+                        <p style="font-weight: normal; font-size: 16px;">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+                        tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.</p>
+                    </mj-text>
+                    <mj-text font-family="Ubuntu, Helvetica, Arial, sans-serif" font-size="13px" align="right">
+                        <a href="#" style="text-decoration: none; text-transform: uppercase; font-weight: 300; color: #fff;">[[link to]]</a>
+                    </mj-text>
+                </mj-column>
+            </mj-section>
+            <!--footer-->
+            <mj-section>
+                <mj-column vertical-align="top">
+                    <mj-image href="http://cheersunlimited.com.ua/" src="http://time-machine.dev/build/images/cheers-logo.png" alt="CHEERS - unlimited web production" width="30px" align="center"></mj-image>
+                </mj-column>
+            </mj-section>
+        </mj-container>
+    </mj-body>
+</mjml>
