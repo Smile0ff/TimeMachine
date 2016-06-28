@@ -217,9 +217,24 @@ body, html{
     bottom: 80px;
     z-index: 20;
     cursor: pointer;
-    & > .arrow{ transition: all .25s @easing; }
+    & > .arrow{
+        transition: all .25s @easing;
+        &:before{
+            height: 40px;
+            position: absolute;
+            left: 50%;
+            bottom: 0;
+            transform: translateX(-50%);
+            margin: 0;
+        }
+        &:after{
+            right: auto;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+    }
     &:hover{
-        .arrow{ transform: translateY(-20px); }
+        .arrow{ transform: translateY(-10px); }
     }
 }
 

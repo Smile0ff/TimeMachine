@@ -13,14 +13,19 @@ class PhotoGrid{
         this.perRow = perRow;
         this.gap = gap;
 
-        this._events();
-
+        this._events();        
+    }
+    _events(){
+        $(window)
+            .on("load", (e) => { this._handleLoaded(e) })
+            .on("resize", (e) => { this._handleResize(e) });
+    }
+    _handleLoaded(e){
         this.setTemporaryHeight();
         this.calcWidth();
         this.setupGrid();
-    }
-    _events(){
-        $(window).on("resize", (e) => { this._handleResize(e) });
+
+        return false;
     }
     _handleResize(e){
         this.setTemporaryHeight();
