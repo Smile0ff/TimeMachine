@@ -8,7 +8,7 @@ Handlebars.registerHelper("dump", (context) => {
 
 Handlebars.registerHelper("wrapNotes", (text, options) => {
     text = Handlebars.Utils.escapeExpression(text);
-    text = text.replace(/\[{1,}(.+)\]{1,}/g, "<span class='note'>$1</span>");
+    text = text.replace(/\[(.+)\]/g, "<span class='note'>$1</span>");
 
     return new Handlebars.SafeString(text);
 });

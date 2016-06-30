@@ -1,0 +1,114 @@
+@import "components/common.less";
+@import "components/menu.less";
+@import "components/loader.less";
+@import "components/ajax-loader.less";
+@import "components/ajax-response.less";
+@import "components/forms.less";
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+/*  layout start                              */
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+#page,
+#content{
+    height: auto;
+    min-height: 100%;
+}
+
+#content{
+    background: @black;
+    padding-bottom: 80px;
+    .outer{
+        position: relative;
+        z-index: 10;
+        padding: 240px 12.5% 0;
+        box-sizing: border-box;
+    }
+}
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+/*  layout end                                */
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+/*  contacts start                            */
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+.contacts-holder{
+    h1.entitled-holder{
+        font-family: @djsc;
+        font-size: 1em;
+        color: @white;
+        text-transform: uppercase;
+        &:before{
+            display: inline-block;
+            vertical-align: middle;
+            width: 80px;
+            height: 2px;
+            background: @white;
+            margin-right: 20px;
+            content: "";
+        }
+    }
+    & > p{
+        color: @white;
+        margin-top: 20px;
+        padding-left: 80px;
+    }
+    .inner{ margin: 80px auto; }
+}
+
+#feedback-form{
+    label.error{
+        margin-top: 10px;
+    }
+    .success-holder{
+        width: 100%;
+        height: auto;
+        margin-bottom: 20px;
+        background: @grey;
+        p{
+            padding: 20px;
+            color: @white;
+        }
+    }
+}
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+/*  contacts end                              */
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+/*  adaptive start                            */
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+@media only screen and @tablet{
+    
+    #content .outer{ padding: 200px 0 0 16.66666666666667%; }
+
+    .contacts-holder{
+        & > p{ padding: 0 40px; }
+        .inner{ margin: 20px auto 80px; }
+    }
+
+}
+@media only screen and @mobileL{
+
+    #content .outer{ padding: 160px 0 0 16.66666666666667%; }
+    
+    .contacts-holder{
+        h1.entitled-holder{
+            &:before{ width: 40px; }
+        }
+        & > p{ padding: 0 40px; }
+        .inner{ margin: 0 auto 40px; }
+    }
+}
+@media only screen and @mobileM{
+
+    #content .outer{ padding: 120px 0 0 16.66666666666667%; }
+    .contacts-holder > p{ padding: 0 40px 0 0; }
+
+}
+@media only screen and @mobileS{
+
+    #content .outer{ padding: 80px 0 0 16.66666666666667%; }
+    
+}
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+/*  adaptive end                              */
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/

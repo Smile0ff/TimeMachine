@@ -166,7 +166,7 @@
                 }
                 a{
                     display: block;
-                    width: 160px;
+                    width: 180px;
                     height: 20px;
                     position: relative;
                     z-index: 10;
@@ -391,10 +391,17 @@
 @media only screen and @mobileM{
     
     #toggle-menu{
-        top: 20px;
-        right: 20px;
+        top: 40px;
+        right: 40px;
         &.active{
-            top: 20px;
+            top: 40px;
+        }
+    }
+
+    #menu-holder{
+        .lang{
+            top: 0;
+            left: 0;
         }
     }
 
@@ -440,6 +447,18 @@
                     }
                 }
             }
+        }
+    }
+
+}
+
+@media only screen and @mobileS{
+
+    #toggle-menu{
+        top: 20px;
+        right: 20px;
+        &.active{
+            top: 20px;
         }
     }
 

@@ -31,7 +31,7 @@
 	<link rel="icon" type="image/png" href="assets/images/favicons/96x96.png">
 	<link rel="icon" type="image/png" href="assets/images/favicons/160x160.png">
 	<link rel="icon" type="image/png" href="assets/images/favicons/192x192.png">
-	<link rel="stylesheet" href="build/css/band.bundle.min.css">
+	<link rel="stylesheet" href="build/css/contacts.bundle.min.css">
 </head>
 <body>
 	<div id="page">
@@ -75,7 +75,7 @@
 								<span class="title">Blog</span>
 							</a>
 						</li>
-						<li class="active">
+						<li>
 							<a href="band.html">
 								<span class="num">05.</span>
 								<span class="title">Band</span>
@@ -85,6 +85,12 @@
 							<a href="gallery.html">
 								<span class="num">06.</span>
 								<span class="title">Gallery</span>
+							</a>
+						</li>
+						<li class="active">
+							<a href="contacts.html">
+								<span class="num">06.</span>
+								<span class="title">Contacts</span>
 							</a>
 						</li>
 					</ul>
@@ -133,71 +139,32 @@
 			</div>
 		</div>
 		<main id="content">
-			<section class="outer band-holder">
-				<h1 class="entitled-holder">band</h1>
-				<div class="inner grid" id="lift-holder">
-					<article class="item lift-item">
-						<div class="photo-holder">
-							<div class="photo">
-								<figure>
-									<img src="build/images/band/1.jpg" alt="participant name">
-								</figure>
-							</div>
+			<section class="outer contacts-holder">
+				<h1 class="entitled-holder">Contacts</h1>
+				<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Qui, facilis repellat accusamus! Odio veritatis, voluptate voluptates aut eveniet quae a saepe pariatur fugiat, incidunt officiis adipisci cumque quas illum harum.</p>
+				<div class="inner">
+					<form action="php/feedback.php" method="POST" id="feedback-form">
+						<div class="success-holder">
+							
 						</div>
-						<div class="stamp-holder">
-							<span class="upper-title">1968</span>
-							<p class="sub-title">5 лет в группе</p>
+						<div class="field-holder">
+							<input type="text" name="feedback[name]" value="" placeholder="Введите ваше имя" id="feedback-name" data-rule-required="true" data-msg-required="Обязательное поле для заполнения">
 						</div>
-						<div class="info-holder">
-							<span class="upper-title">гитарист</span>
-							<span class="underline"></span>
-							<h2>Lorem ipsum dolor sit amet</h2>
-							<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Harum eius nulla veritatis vitae, ipsa perspiciatis error ea voluptatem expedita! Perferendis quis nisi ad odit tempore error atque dolor aspernatur porro!</p>
+						<div class="field-holder">
+							<input type="email" name="feedback[email]" value="" placeholder="Введите ваш электронный адрес" id="feedback-email" data-rule-required="true" data-msg-required="Обязательное поле для заполнения" data-rule-email="true" data-msg-email="Что-то не похоже на настоящий электронный адрес">
 						</div>
-					</article>
-					<article class="item lift-item">
-						<div class="photo-holder">
-							<div class="photo">
-								<figure>
-									<img src="build/images/band/1.jpg" alt="participant name">
-								</figure>
-							</div>
+						<div class="field-holder">
+							<input type="text" name="feedback[theme]" value="" placeholder="Введите тему письма" id="feedback-theme">
 						</div>
-						<div class="stamp-holder">
-							<span class="upper-title">1968</span>
-							<p class="sub-title">5 лет в группе</p>
+						<div class="field-holder">
+							<textarea name="feedback-message" placeholder="Введите ваше сообщение" id="feedback[message]" data-rule-required="true" data-msg-required="Обязательное поле для заполнения"></textarea>
 						</div>
-						<div class="info-holder">
-							<span class="upper-title">гитарист</span>
-							<span class="underline"></span>
-							<h2>Lorem ipsum dolor sit amet</h2>
-							<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Harum eius nulla veritatis vitae, ipsa perspiciatis error ea voluptatem expedita! Perferendis quis nisi ad odit tempore error atque dolor aspernatur porro!</p>
-						</div>
-					</article>
-					<article class="item lift-item">
-						<div class="photo-holder">
-							<div class="photo">
-								<figure>
-									<img src="build/images/band/1.jpg" alt="participant name">
-								</figure>
-							</div>
-						</div>
-						<div class="stamp-holder">
-							<span class="upper-title">1968</span>
-							<p class="sub-title">5 лет в группе</p>
-						</div>
-						<div class="info-holder">
-							<span class="upper-title">гитарист</span>
-							<span class="underline"></span>
-							<h2>Lorem ipsum dolor sit amet</h2>
-							<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Harum eius nulla veritatis vitae, ipsa perspiciatis error ea voluptatem expedita! Perferendis quis nisi ad odit tempore error atque dolor aspernatur porro!</p>
-						</div>
-					</article>
+						<button type="submit">
+							<span>Отправить</span>
+						</button>
+					</form>
 				</div>
 			</section>
-			<div id="to-top">
-				<span class="arrow arrow-top"></span>
-			</div>
 		</main>
 		<div id="bg-circle-overlay">
 			<div class="circle"></div>
@@ -222,12 +189,13 @@
 			<span class="circle"></span>
 			<span class="circle"></span>
 		</div>
+		<div id="ajax-response-holder"></div>
 	</div>
 	<footer id="footer">
 		<a href="#" class="logo"><img src="build/images/cheers-logo.png" alt="CHEERS - unlimited web production"></a>
 		<small>© 2016. All rights Reserved. Designed by CHEERS - Unlimited Web Production</small>
 	</footer>
-	<!--script src="jspm_packages/system.js"></script>
+	<script src="jspm_packages/system.js"></script>
 	<script src="jspm.config.js"></script>
 	<script>
 		var body = document.querySelector("body");
@@ -240,8 +208,8 @@
 
 		}, false);
 
-		System.import("assets/js/app/band");
-	</script-->
-	<script src="build/js/band.bundle.min.js"></script>
+		System.import("assets/js/app/contacts");
+	</script>
+	<!--script src="build/js/contacts.bundle.min.js"></script-->
 </body>
 </html>
